@@ -3,38 +3,31 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 export default MainNavigation = () => {
 	return (
 		<View style={styles.navContainer}>
-			<View>
-        <Image source={require('../../../assets/icon.png')} style={styles.image} />
-        <Text>Tomas</Text>
+			<View style={styles.navItem}>
+        <Image source={require('../../../assets/icon.png')} style={styles.navIcon} />
+        <Text style={styles.navText}>Recordatorios</Text>
       </View>
-			<View>
-        <Image source={require('../../../assets/icon.png')} style={styles.image} />
-        <Text>Medicamentos</Text>
+			<View style={styles.navItem}>
+        <Image source={require('../../../assets/icon.png')} style={styles.navIcon} />
+        <Text style={styles.navText}>Medicinas</Text>
       </View>
-			<View>
-        <Image source={require('../../../assets/icon.png')} style={styles.image} />
-        <Text>Añadir</Text>
+			<View style={styles.navItem}>
+        <Image source={require('../../../assets/icon.png')} style={styles.navIcon} />
+        <Text style={styles.navText}>Añadir</Text>
       </View>
-			<View>
-        <Image source={require('../../../assets/icon.png')} style={styles.image} />
-        <Text>Historial</Text>
+			<View style={styles.navItem}>
+        <Image source={require('../../../assets/icon.png')} style={styles.navIcon} />
+        <Text style={styles.navText}>Historial</Text>
       </View>
-			<View>
-        <Image source={require('../../../assets/icon.png')} style={styles.image} />
-        <Text>Configuracion</Text>
+			<View style={styles.navItem}>
+        <Image source={require('../../../assets/icon.png')} style={styles.navIcon} />
+        <Text style={styles.navText}>Configuracion</Text>
       </View>
 		</View>
 	);
 }
 
 const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: '#fffccc',
-		alignItems: 'center',
-		paddingVertical: 40,
-		paddingHorizontal: 20
-	},
 	internalContainer: {
 		backgroundColor: "white", 
 		padding: 20,
@@ -46,20 +39,28 @@ const styles = StyleSheet.create({
     alignItems: 'center'
 	},
   navContainer: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: 'darkgray',
-    padding: 10
-	},
-	input: {
-    flex: 1,
-    borderBottomColor:"gray", 
-    borderBottomWidth: 2, 
+    backgroundColor: '#101010',
     padding: 10,
-    margin: 10
+    paddingBottom: 20,
 	},
-	image: {
+  navItem: {
+    flex: 1,
+    textAlign: 'center',
+    alignItems: 'center',
+  },
+  navText: { 
+    fontSize: 8,
+    color: 'white',
+    paddingTop: 5,
+  },
+	navIcon: {
     width: 50,
     height: 50,
     alignItems: 'center',

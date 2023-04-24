@@ -17,10 +17,9 @@ export default  App = () => {
       </View>
       <View style={styles.internalContainer}>
         <MedsList meds={[]} />
-      </View>
-      <View>
-        <MainNavigation />
-      </View>
+      </View>      
+      <MainNavigation />
+      
       <StatusBar style="auto" />
     </View>
   );
@@ -32,7 +31,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fffccc',
     alignItems: 'center',
     paddingVertical: 40,
-    paddingHorizontal: 20
   },
   internalContainer: {
     backgroundColor: "white", 
