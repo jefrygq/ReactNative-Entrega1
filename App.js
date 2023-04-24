@@ -9,15 +9,12 @@ import MainNavigation from './src/components/MainNavigation/MainNavigation';
 export default  App = () => {
   return (
     <View style={styles.container}>
+      <Header title={'Maria Alarcon'} buttonLeft={<Button title={'Perfil'} />} buttonRight={<Button title={'Buscar'} />} />
       <View style={styles.internalContainer}>
-        <View style={styles.rowContainer}>
-          <Header title={'Hoy'} buttonLeft={<Button title={'Perfil'} />} buttonRight={<Button title={'Buscar'} />} />
-        </View>
+        <Text>Recordatorios</Text>
         <AddMedForm />
-      </View>
-      <View style={styles.internalContainer}>
         <MedsList meds={[]} />
-      </View>      
+      </View>
       <MainNavigation />
       
       <StatusBar style="auto" />
@@ -28,7 +25,7 @@ export default  App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fffccc',
+    backgroundColor: '#bbffcc',
     alignItems: 'center',
     paddingVertical: 40,
   },

@@ -20,7 +20,25 @@ export default AddMedForm = () => {
 }
 
 const styles = StyleSheet.create({
-	container: {
-		flex: 1,
+	internalContainer: {
+	  backgroundColor: "white", 
+	  padding: 20,
+	  width: '100%'
+	},
+	rowContainer: {
+	  flexDirection: 'row',
+	  justifyContent: 'space-between',
+	  alignItems: 'center'
+	},
+	input: {
+	  flex: 1,
+	  borderBottomColor:"gray", 
+	  borderBottomWidth: 2, 
+	  padding: 10,
+	  margin: 10
+	},
+	image: {
+	  width: 50,
+	  height: 50
 	}
-});
+  });
