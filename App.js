@@ -1,22 +1,35 @@
 import { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, Button, TextInput, FlatList } from 'react-native';
+import Modal from './src/components/Modal/Modal';
 
 export default function App() {
   const [textItem, setTextItem] = useState('');
   const [list, setList] = useState([]);
+  const [itemSelected, setItemSelected] = useState({});
+  const [modalVisible, setModalVisible] = useState(false);
 
   const onHandleTextChange = text => setTextItem(text);
   const onHandleAddToList = () => {
-    setList(prevState => [...prevState, textItem]);
+    setList(prevState => [...prevState, {name: textItem, id: list.length}]);
     setTextItem('');
+  };
+
+  const onHandleDelete = item => {
+    setList(prevState => prevState.filter(i => i.name !== item.name));
+    setModalVisible(false);
+  };
+
+  const onHandleModal = item => {
+    console.log(item);
+    setItemSelected(item);
+    setModalVisible(true);
   };
 
   const renderItem = ({item}) => (
     <View style={styles.rowContainer}>
-      <Text>item</Text>
-      <Button title={"Edit"} />
-      <Button title={"Delete"} />
+      <Text>{item.name}</Text>
+      <Button title={"Delete"} onPress={() => onHandleModal(item)} />
     </View>
   );
 
@@ -36,9 +49,12 @@ export default function App() {
         <FlatList 
           data={list} 
           renderItem={renderItem} 
-          keyExtractor={item => item} 
+          keyExtractor={item => item.id}
         />
       </View>
+      
+      <Modal modalVisible={modalVisible} setModalVisible={setModalVisible} onHandleDelete={onHandleDelete} itemSelected={itemSelected} />
+      
       <StatusBar style="auto" />
     </View>
   );
