@@ -12,18 +12,18 @@ export default Header = ({title, buttonLeft, buttonRight}) => {
 
 const styles = StyleSheet.create({
 	headerContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center'
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		alignItems: 'center'
 	},
 	headerTitle: {
-    flex: 1,
-    textAlign: 'left',
-    padding: 10,
-    margin: 10
+		flex: 1,
+		textAlign: 'left',
+		padding: 10,
+		margin: 10
 	},
 	headerButton: {
-    width: 50,
-    height: 50
+		width: 50,
+		height: 50
 	}
 });

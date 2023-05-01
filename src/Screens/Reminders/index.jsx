@@ -1,19 +1,22 @@
 import { StyleSheet, Text, View, Image, Button, TextInput, FlatList } from 'react-native';
 
-import Header from '../Header/Header';
-import MedsList from '../MedsList/MedsList';
+import Header from '../../components/Header/Header';
+import MedsList from '../../components/MedsList/MedsList';
 
-export default Reminders = () => {
-    return (
-        <View style={styles.container}>
-          <Header title={'Maria Alarcon'} buttonLeft={<Button title={'Perfil'} />} buttonRight={<Button title={'Buscar'} />} />
-          <View style={styles.internalContainer}>
-            <Text>Recordatorios</Text>
-            <AddMedForm />
-            <MedsList meds={[]} />
-          </View>
-        </View>
-    );
+export default Reminders = ({ route, navigation }) => {
+	/* Get the params */
+	// const { itemId, otherParam } = route.params;
+
+  return (
+    <View style={styles.container}>
+      <Header title={'Maria Alarcon'} buttonLeft={<Button title={'Perfil'} />} buttonRight={<Button title={'Buscar'} />} />
+      <View style={styles.internalContainer}>
+        <Text>Recordatorios</Text>
+        <AddMedForm />
+        <MedsList meds={[]} />
+      </View>
+    </View>
+  );
 }
 
 

@@ -2,9 +2,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { StatusBar } from 'expo-status-bar';
-import AddMedForm from './src/components/AddMedForm/AddMedForm';
+import AddMedForm from './src/Screens/AddMedForm';
 import MainNavigation from './src/components/MainNavigation/MainNavigation';
-import Reminders from './src/components/Reminders/Reminders';
+import Reminders from './src/Screens/Reminders';
 
 export default  App = () => {
   const Stack = createNativeStackNavigator();
