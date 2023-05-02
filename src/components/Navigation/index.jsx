@@ -2,7 +2,7 @@ import { Text, View, Image, TouchableHighlight } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Reminders from '../../Screens/Reminders';
-import AddMedForm from '../../Screens/AddMedForm';
+import AddMedForm from '../../Screens/AddMed';
 import MedsArchive from '../../Screens/MedsArchive';
 
 import styles from './styles';
