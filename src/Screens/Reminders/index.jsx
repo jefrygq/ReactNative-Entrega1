@@ -11,8 +11,7 @@ export default Reminders = ({ route, navigation }) => {
     <View style={styles.container}>
       <Header title={'Maria Alarcon'} buttonLeft={<Button title={'Perfil'} />} buttonRight={<Button title={'Buscar'} />} />
       <View style={styles.internalContainer}>
-        <Text>Recordatorios</Text>
-        <AddMedForm />
+        <Text>Today</Text>
         <MedsList meds={[]} />
       </View>
     </View>

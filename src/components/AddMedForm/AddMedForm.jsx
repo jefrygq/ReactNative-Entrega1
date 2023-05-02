@@ -1,10 +1,7 @@
 import { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, Button } from 'react-native';
 
-export default AddMedForm = ({ route, navigation }) => {
-	/* Get the params */
-	// const { itemId, otherParam } = route.params;
-	
+export default AddMedForm = () => {
 	const [textItem, setTextItem] = useState('');
 	const [list, setList] = useState([]);
 
