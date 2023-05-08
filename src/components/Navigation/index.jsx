@@ -25,8 +25,8 @@ export default BottomNavigation = () => {
       screenOptions={{
         tabBarShowLabel: false,
         tabBarStyle: {
-          ...styles.navContainer,
-          ...styles.shadow
+          ...styles.shadow,
+          ...styles.navContainer
         },
       }}
     >

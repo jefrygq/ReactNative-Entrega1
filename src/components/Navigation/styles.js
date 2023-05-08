@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 
 export default styles = StyleSheet.create({
   shadow: {
@@ -10,26 +10,25 @@ export default styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.5,
     elevation: 5
-
   },
   navContainer: {
-    display: 'flex',
     position: 'absolute',
-    bottom: 20,
-    left: 20,
-    right: 20,
-    elevation: 0,
+    bottom: Platform.OS === 'ios' ? 30 : 15,
+    left: 15,
+    right: 15,
     backgroundColor: '#ffffff',
     borderRadius: 15,
-    height: 80,
+    height: 80, 
   },
   navItem: {
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    top: Platform.OS === 'ios' ? 15 : 0,
   },
   navIcon: {
-    width: 40,
-    height:40,
+    width: 32,
+    height: 32,
   },
   navText:{
     fontSize: 10,
