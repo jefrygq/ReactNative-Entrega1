@@ -22,9 +22,8 @@ export default styles = StyleSheet.create({
   },
   logoText: {
     color: colors.primary,
-    fontSize: 20,
-    fontWeight: "bold",
-    textTransform: "uppercase",
+    fontSize: 36,
+    fontFamily: "Quicksand-Medium",
   },
   input: {
     width: "80%",
@@ -46,7 +45,7 @@ export default styles = StyleSheet.create({
   },
   loginButtonText: {
     color: colors.white,
-    fontWeight: "bold",
     fontSize: 16,
+    fontFamily: "Quicksand-Medium",
   },
 });

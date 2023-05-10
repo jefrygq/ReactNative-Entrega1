@@ -1,4 +1,5 @@
 import { Platform, StyleSheet } from "react-native";
+import colors from "../../constants/colors";
 
 export default styles = StyleSheet.create({
   shadow: {
@@ -36,7 +37,7 @@ export default styles = StyleSheet.create({
     textTransform: 'uppercase',
   },
   addButton: {
-    backgroundColor: '#e32f45',
+    backgroundColor: colors.actionColor,
     alignItems: 'center',
     justifyContent: 'center',
     width: 60,
@@ -44,7 +45,7 @@ export default styles = StyleSheet.create({
     borderRadius: 50,
     elevation: 5,
     top: -30,
-    shadowColor: '#e32f45',
+    shadowColor: colors.actionColor,
     shadowOffset: {
       width: 0,
       height: 10

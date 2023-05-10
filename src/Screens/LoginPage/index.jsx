@@ -7,7 +7,7 @@ const LoginPage = ({setIsUserLoggedIn}) => {
     <View style={styles.container}>
       <View style={styles.logoContainer}>
         <Image source={logo} style={styles.logo} />
-        <Text style={styles.logoText}>My Meds</Text>
+        <Text style={styles.logoText}>Medicine</Text>
       </View>
       <View style={styles.loginForm}>
         <TextInput style={styles.input} placeholder="Email" />

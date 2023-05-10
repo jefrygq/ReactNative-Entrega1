@@ -9,6 +9,8 @@ import styles from './styles';
 import Settings from '../../Screens/Settings';
 import AllMeds from '../../Screens/AllMeds';
 
+import colors from '../../constants/colors';
+
 const CustomAddButton = ({children, onPress}) => {
   return (
     <TouchableHighlight onPress={onPress} style={styles.addButton}>
@@ -38,10 +40,10 @@ export default BottomNavigation = () => {
               resizeMode={'contain'}
               style={{
                 ...styles.navIcon,
-                tintColor: focused ? '#e32f45' : '#748c94'
+                tintColor: focused ? colors.actionColor : '#748c94'
               }}
             />
-            <Text style={{color: focused ? '#e32f45' : '#748c94', ...styles.navText}}>Scheduled</Text>
+            <Text style={{color: focused ? colors.actionColor : '#748c94', ...styles.navText}}>Scheduled</Text>
           </View>
         )
       }} />
@@ -53,10 +55,10 @@ export default BottomNavigation = () => {
               resizeMode={'contain'}
               style={{
                 ...styles.navIcon,
-                tintColor: focused ? '#e32f45' : '#748c94'
+                tintColor: focused ? colors.actionColor : '#748c94'
               }}
             />
-            <Text style={{color: focused ? '#e32f45' : '#748c94', ...styles.navText}}>All Meds</Text>
+            <Text style={{color: focused ? colors.actionColor : '#748c94', ...styles.navText}}>All Meds</Text>
           </View>
         )
       }} />
@@ -82,10 +84,10 @@ export default BottomNavigation = () => {
               resizeMode={'contain'}
               style={{
                 ...styles.navIcon,
-                tintColor: focused ? '#e32f45' : '#748c94'
+                tintColor: focused ? colors.actionColor : '#748c94'
               }}
             />
-            <Text style={{color: focused ? '#e32f45' : '#748c94', ...styles.navText}}>History</Text>
+            <Text style={{color: focused ? colors.actionColor : '#748c94', ...styles.navText}}>History</Text>
           </View>
         )
       }} />
@@ -97,10 +99,10 @@ export default BottomNavigation = () => {
               resizeMode={'contain'}
               style={{
                 ...styles.navIcon,
-                tintColor: focused ? '#e32f45' : '#748c94'
+                tintColor: focused ? colors.actionColor : '#748c94'
               }}
             />
-            <Text style={{color: focused ? '#e32f45' : '#748c94', ...styles.navText}}>Settings</Text>
+            <Text style={{color: focused ? colors.actionColor : '#748c94', ...styles.navText}}>Settings</Text>
           </View>
         )
       }} />
