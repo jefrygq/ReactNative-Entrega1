@@ -1,15 +1,14 @@
 import { Text, View, Image, TouchableHighlight } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
-import Reminders from '../../Screens/Reminders';
-import AddMedForm from '../../Screens/AddMed';
-import MedsArchive from '../../Screens/MedsArchive';
-
 import styles from './styles';
-import Settings from '../../Screens/Settings';
-import AllMeds from '../../Screens/AllMeds';
 
-import colors from '../../constants/colors';
+import ScheduledScreen from '../Screens/ScheduledScreen';
+import AllMedsScreen from '../Screens/AllMedsScreen';
+import AddScreen from '../Screens/AddScreen';
+import MedsArchiveScreen from '../Screens/MedsArchiveScreen';
+import SettingsScreen from '../Screens/SettingsScreen';
+
+import colors from '../constants/colors';
 
 const CustomAddButton = ({children, onPress}) => {
   return (
@@ -32,11 +31,11 @@ export default BottomNavigation = () => {
         },
       }}
     >
-      <Tab.Screen name="Scheduled / Next" component={Reminders} options={{
+      <Tab.Screen name="Scheduled / Next" component={ScheduledScreen} options={{
         tabBarIcon: ({focused}) => (
           <View style={styles.navItem}>
             <Image 
-              source={require('../../assets/icons/meds.png')}
+              source={require('../assets/icons/meds.png')}
               resizeMode={'contain'}
               style={{
                 ...styles.navIcon,
@@ -47,11 +46,11 @@ export default BottomNavigation = () => {
           </View>
         )
       }} />
-      <Tab.Screen name="All Medicine" component={AllMeds} options={{
+      <Tab.Screen name="All Medicine" component={AllMedsScreen} options={{
         tabBarIcon: ({focused}) => (
           <View style={styles.navItem}>
             <Image 
-              source={require('../../assets/icons/all.png')}
+              source={require('../assets/icons/all.png')}
               resizeMode={'contain'}
               style={{
                 ...styles.navIcon,
@@ -62,10 +61,10 @@ export default BottomNavigation = () => {
           </View>
         )
       }} />
-      <Tab.Screen name="Add" component={AddMedForm} options={{
+      <Tab.Screen name="Add" component={AddScreen} options={{
         tabBarIcon: ({focused}) => (
           <Image 
-            source={require('../../assets/icons/add.png')}
+            source={require('../assets/icons/add.png')}
             resizeMode={'contain'}
             style={{
               width: 40,
@@ -76,11 +75,11 @@ export default BottomNavigation = () => {
         ),
         tabBarButton: (props) => (<CustomAddButton {...props} />)
       }} />
-      <Tab.Screen name="History" component={MedsArchive} options={{
+      <Tab.Screen name="History" component={MedsArchiveScreen} options={{
         tabBarIcon: ({focused}) => (
           <View style={styles.navItem}>
             <Image 
-              source={require('../../assets/icons/history.png')}
+              source={require('../assets/icons/history.png')}
               resizeMode={'contain'}
               style={{
                 ...styles.navIcon,
@@ -91,11 +90,11 @@ export default BottomNavigation = () => {
           </View>
         )
       }} />
-      <Tab.Screen name="Settings" component={Settings} options={{
+      <Tab.Screen name="Settings" component={SettingsScreen} options={{
         tabBarIcon: ({focused}) => (
           <View style={styles.navItem}>
             <Image 
-              source={require('../../assets/icons/settings.png')}
+              source={require('../assets/icons/settings.png')}
               resizeMode={'contain'}
               style={{
                 ...styles.navIcon,

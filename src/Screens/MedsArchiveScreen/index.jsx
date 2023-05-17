@@ -1,12 +1,12 @@
 import { View, Text, StyleSheet } from 'react-native';
 
-export default AllMeds = ({ route, navigation }) => {
+export default MedsArchiveScreen = ({ route, navigation }) => {
 	/* Get the params */
 	// const { itemId, otherParam } = route.params;
 	
 	return (
 		<View style={styles.container}>
-			<Text>AllMeds Component</Text>
+			<Text>MedsArchive Component</Text>
 		</View>
 	);
 }

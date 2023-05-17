@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet } from 'react-native';
 
-export default Settings = ({ route, navigation }) => {
+export default SettingsScreen = ({ route, navigation }) => {
 	/* Get the params */
 	// const { itemId, otherParam } = route.params;
 	

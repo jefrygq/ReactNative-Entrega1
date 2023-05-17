@@ -4,8 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { useFonts } from "expo-font";
 
-import BottomNavigation from './src/components/Navigation';
-import LoginPage from './src/Screens/LoginPage';
+import BottomNavigation from './src/Navigation';
+import LoginScreen from './src/Screens/LoginScreen';
 
 export default  App = () => {
   const [isUserLogged, setIsUserLoggedIn] = useState(false);
@@ -25,7 +25,7 @@ export default  App = () => {
   </NavigationContainer>;
 
   if(!isUserLogged) {
-    content = <LoginPage setIsUserLoggedIn={setIsUserLoggedIn} />
+    content = <LoginScreen setIsUserLoggedIn={setIsUserLoggedIn} />
   }
 
   return (

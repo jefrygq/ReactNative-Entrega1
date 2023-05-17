@@ -2,7 +2,7 @@ import { View, TextInput, Text, Image, TouchableHighlight } from "react-native";
 import styles from './styles';
 import logo from '../../assets/img/mlogo.png';
 
-const LoginPage = ({setIsUserLoggedIn}) => {
+const LoginScreen = ({setIsUserLoggedIn}) => {
   return (
     <View style={styles.container}>
       <View style={styles.logoContainer}>
@@ -21,4 +21,4 @@ const LoginPage = ({setIsUserLoggedIn}) => {
   );
 };
 
-export default LoginPage;
+export default LoginScreen;

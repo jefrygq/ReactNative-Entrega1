@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image, Button, TextInput, FlatList } from 'reac
 import Header from '../../components/Header/Header';
 import MedsList from '../../components/MedsList/MedsList';
 
-export default Reminders = ({ route, navigation }) => {
+export default ScheduledScreen = ({ route, navigation }) => {
 	/* Get the params */
 	// const { itemId, otherParam } = route.params;
 
