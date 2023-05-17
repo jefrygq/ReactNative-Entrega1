@@ -22,7 +22,7 @@ export default styles = StyleSheet.create({
   },
   logoText: {
     color: colors.primary,
-    fontSize: 36,
+    fontSize: 34,
     fontFamily: "Quicksand-Medium",
   },
   input: {

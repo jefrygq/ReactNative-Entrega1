@@ -1,13 +1,13 @@
 import { View, TextInput, Text, Image, TouchableHighlight } from "react-native";
 import styles from './styles';
-import logo from '../../assets/mlogo.png';
+import logo from '../../assets/img/mlogo.png';
 
 const LoginPage = ({setIsUserLoggedIn}) => {
   return (
     <View style={styles.container}>
       <View style={styles.logoContainer}>
         <Image source={logo} style={styles.logo} />
-        <Text style={styles.logoText}>Medicine</Text>
+        <Text style={styles.logoText}>Medi App</Text>
       </View>
       <View style={styles.loginForm}>
         <TextInput style={styles.input} placeholder="Email" />

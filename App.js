@@ -3,7 +3,6 @@ import { View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { useFonts } from "expo-font";
-import AppLoading from 'expo-app-loading';
 
 import BottomNavigation from './src/components/Navigation';
 import LoginPage from './src/Screens/LoginPage';
@@ -17,7 +16,7 @@ export default  App = () => {
   });
 
   if (!fontsLoaded) {
-    return <AppLoading />;
+    return null;
   }
 
   let content = <NavigationContainer>
