@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, Button } from 'react-native';
+import { View, Text, TextInput, Button } from 'react-native';
+import { styles } from './styles';
 
 export default AddMedForm = () => {
 	const [textItem, setTextItem] = useState('');
@@ -18,27 +19,3 @@ export default AddMedForm = () => {
         </View>
 	);
 }
-
-const styles = StyleSheet.create({
-	internalContainer: {
-    backgroundColor: "white", 
-    padding: 20,
-    width: '100%'
-	},
-	rowContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center'
-	},
-	input: {
-    flex: 1,
-    borderBottomColor:"gray", 
-    borderBottomWidth: 2, 
-    padding: 10,
-    margin: 10
-	},
-	image: {
-    width: 50,
-    height: 50
-	}
-  });

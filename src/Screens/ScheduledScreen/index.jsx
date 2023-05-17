@@ -1,7 +1,8 @@
-import { StyleSheet, Text, View, Image, Button, TextInput, FlatList } from 'react-native';
+import { Text, View, Image, Button, TextInput, FlatList } from 'react-native';
 
 import Header from '../../components/Header/Header';
 import MedsList from '../../components/MedsList/MedsList';
+import styles from './styles';
 
 export default ScheduledScreen = ({ route, navigation }) => {
 	/* Get the params */
@@ -19,30 +20,4 @@ export default ScheduledScreen = ({ route, navigation }) => {
 }
 
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center'
-  },
-  internalContainer: {
-    backgroundColor: "white", 
-    padding: 20,
-    width: '100%'
-  },
-  rowContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center'
-  },
-  input: {
-    flex: 1,
-    borderBottomColor:"gray", 
-    borderBottomWidth: 2, 
-    padding: 10,
-    margin: 10
-  },
-  image: {
-    width: 50,
-    height: 50
-  }
-});
+

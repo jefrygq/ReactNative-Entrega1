@@ -1,4 +1,5 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
+import styles from './styles';
 
 export default SettingsScreen = ({ route, navigation }) => {
 	/* Get the params */
@@ -11,8 +12,4 @@ export default SettingsScreen = ({ route, navigation }) => {
 	);
 }
 
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-	}
-});
+
