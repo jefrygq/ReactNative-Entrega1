@@ -1,9 +1,9 @@
 import { Platform, StyleSheet } from "react-native";
-import colors from "../constants/colors";
+import Colors from "../constants/colors";
 
 export default styles = StyleSheet.create({
   shadow: {
-    shadowColor: '#7F5DF0',
+    shadowColor: Colors.actionColor,
     shadowOffset: {
       width: 0,
       height: 10
@@ -37,7 +37,7 @@ export default styles = StyleSheet.create({
     textTransform: 'uppercase',
   },
   addButton: {
-    backgroundColor: colors.actionColor,
+    backgroundColor: Colors.actionColor,
     alignItems: 'center',
     justifyContent: 'center',
     width: 60,
@@ -45,7 +45,7 @@ export default styles = StyleSheet.create({
     borderRadius: 50,
     elevation: 5,
     top: -30,
-    shadowColor: colors.actionColor,
+    shadowColor: Colors.actionColor,
     shadowOffset: {
       width: 0,
       height: 10
@@ -53,6 +53,4 @@ export default styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.5,
   },
-
-
 });

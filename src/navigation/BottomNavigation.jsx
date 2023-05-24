@@ -1,25 +1,27 @@
 import { Text, View, Image, TouchableHighlight } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import screenStyles from '../Screens/screenStyles';
 import styles from './styles';
 
 import ScheduledScreen from '../Screens/ScheduledScreen';
-import AllMedsScreen from '../Screens/AllMedsScreen';
-import AddScreen from '../Screens/AddScreen';
+import EditMedScreen from '../Screens/EditMedScreen';
 import MedsArchiveScreen from '../Screens/MedsArchiveScreen';
 import SettingsScreen from '../Screens/SettingsScreen';
 
 import colors from '../constants/colors';
+import MedsNavigation from './MedsNavigation';
 
-const CustomAddButton = ({children, onPress}) => {
-  return (
-    <TouchableHighlight onPress={onPress} style={styles.addButton}>
-      <View>{children}</View>
-    </TouchableHighlight>
-  );
-};
 
 export default BottomNavigation = () => {
   const Tab = createBottomTabNavigator();
+
+  const CustomAddButton = ({children, onPress}) => {
+    return (
+      <TouchableHighlight onPress={onPress} style={styles.addButton}>
+        <View>{children}</View>
+      </TouchableHighlight>
+    );
+  };
 
   return (
     <Tab.Navigator
@@ -29,9 +31,10 @@ export default BottomNavigation = () => {
           ...styles.shadow,
           ...styles.navContainer
         },
+        headerTitleStyle: screenStyles.headerTitleStyle,
       }}
     >
-      <Tab.Screen name="Scheduled / Next" component={ScheduledScreen} options={{
+      <Tab.Screen name="Upcoming" component={ScheduledScreen} options={{
         tabBarIcon: ({focused}) => (
           <View style={styles.navItem}>
             <Image 
@@ -46,7 +49,8 @@ export default BottomNavigation = () => {
           </View>
         )
       }} />
-      <Tab.Screen name="All Medicine" component={AllMedsScreen} options={{
+      <Tab.Screen name="MedsNavigation" component={MedsNavigation} options={{
+        headerShown: false,
         tabBarIcon: ({focused}) => (
           <View style={styles.navItem}>
             <Image 
@@ -61,7 +65,7 @@ export default BottomNavigation = () => {
           </View>
         )
       }} />
-      <Tab.Screen name="Add" component={AddScreen} options={{
+      <Tab.Screen name="Add New" component={EditMedScreen} options={{
         tabBarIcon: ({focused}) => (
           <Image 
             source={require('../assets/icons/add.png')}

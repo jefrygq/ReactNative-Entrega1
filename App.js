@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { StatusBar } from 'expo-status-bar';
 import { useFonts } from "expo-font";
 
-import BottomNavigation from './src/Navigation';
+import BottomNavigation from './src/navigation/BottomNavigation';
 import LoginScreen from './src/Screens/LoginScreen';
 
 export default  App = () => {
@@ -21,7 +20,6 @@ export default  App = () => {
 
   let content = <NavigationContainer>
     <BottomNavigation />
-    <StatusBar style="auto" />
   </NavigationContainer>;
 
   if(!isUserLogged) {

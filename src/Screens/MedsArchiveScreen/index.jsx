@@ -1,4 +1,5 @@
 import { View, Text } from 'react-native';
+import screenStyles from '../screenStyles';
 import styles from './styles';
 
 export default MedsArchiveScreen = ({ route, navigation }) => {
@@ -6,7 +7,7 @@ export default MedsArchiveScreen = ({ route, navigation }) => {
 	// const { itemId, otherParam } = route.params;
 	
 	return (
-		<View style={styles.container}>
+		<View style={screenStyles.screenContainer}>
 			<Text>MedsArchive Component</Text>
 		</View>
 	);
