@@ -3,6 +3,7 @@ import AllMedsScreen from '../Screens/AllMedsScreen';
 import ViewMedScreen from '../Screens/ViewMedScreen';
 import EditMedScreen from '../Screens/EditMedScreen';
 
+import screenStyles from '../Screens/screenStyles';
 import styles from './styles';
 
 const MedsNavigation = () => {
@@ -10,7 +11,7 @@ const MedsNavigation = () => {
 
   return (
     <Stack.Navigator screenOptions={{
-      headerTitleStyle: styles.headerTitleStyle,
+      headerTitleStyle: screenStyles.headerTitleStyle,
     }}>
       <Stack.Screen name="AllMeds" component={AllMedsScreen} />
       <Stack.Screen name="ViewMed" component={ViewMedScreen}

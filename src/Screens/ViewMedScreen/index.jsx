@@ -4,6 +4,7 @@ import screenStyles from '../screenStyles';
 
 const ViewMedScreen = ({route, navigation}) => {
   const med = route.params.med;
+  
   return (
     <View style={screenStyles.screenContainer}>
       <Text>ViewMedScreen</Text>
