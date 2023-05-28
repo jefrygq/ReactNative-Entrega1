@@ -4,7 +4,6 @@ import ViewMedScreen from '../Screens/ViewMedScreen';
 import EditMedScreen from '../Screens/EditMedScreen';
 
 import screenStyles from '../Screens/screenStyles';
-import styles from './styles';
 
 const MedsNavigation = () => {
   const Stack = createNativeStackNavigator();

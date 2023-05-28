@@ -1,14 +1,15 @@
 import { Text, View, Image, TouchableHighlight } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+import colors from '../constants/colors';
 import screenStyles from '../Screens/screenStyles';
 import styles from './styles';
 
 import ScheduledScreen from '../Screens/ScheduledScreen';
 import EditMedScreen from '../Screens/EditMedScreen';
 import MedsArchiveScreen from '../Screens/MedsArchiveScreen';
-import SettingsScreen from '../Screens/SettingsScreen';
 
-import colors from '../constants/colors';
+import SettingsNavigation from '../navigation/SettingsNavigation';
 import MedsNavigation from './MedsNavigation';
 
 
@@ -94,7 +95,8 @@ export default BottomNavigation = () => {
           </View>
         )
       }} />
-      <Tab.Screen name="Settings" component={SettingsScreen} options={{
+      <Tab.Screen name="SettingsNavigation" component={SettingsNavigation} options={{
+        headerShown: false,
         tabBarIcon: ({focused}) => (
           <View style={styles.navItem}>
             <Image 
