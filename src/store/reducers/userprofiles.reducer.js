@@ -1,4 +1,4 @@
-import { CURRENT_PROFILE } from "../actions/profiles.action";
+import { CURRENT_PROFILE } from "../actions/userprofiles.action";
 
 const initialState = {
   profiles: [],
@@ -17,11 +17,9 @@ const ProductReducer = (state = initialState, action) => {
           profile => profile.id === action.profileId
         ),
       };
-      break;
   
     default:
       return state;
-      break;
   }
 }
 

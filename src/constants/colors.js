@@ -7,4 +7,5 @@ export default {
   disabledColor: "#272638",
   black: "#000",
   white: "#fff",
+  red: "#F00"
 }

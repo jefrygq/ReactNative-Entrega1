@@ -2,7 +2,7 @@ import {createStore, combineReducers} from 'redux';
 
 import UserProfilesReducer from './reducers/userprofiles.reducer';
 import MedsReducer from './reducers/meds.reducer';
-import RemindersReducer from './reducers/reminders.reducer';
+// import RemindersReducer from './reducers/reminders.reducer';
 
 // names of the global states
 const RootReducer = combineReducers({

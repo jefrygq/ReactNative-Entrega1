@@ -12,4 +12,8 @@ export default screenStyles = StyleSheet.create({
     fontFamily: "Quicksand-Medium",
     color: Colors.primary,
   },
+  rowContainer: {
+    flex: 1,
+    flexDirection: 'row',
+  }
 });
