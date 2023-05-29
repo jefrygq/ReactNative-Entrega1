@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { useFonts } from "expo-font";
+import { Provider } from 'react-redux';
+import store from './src/store';
 
 import BottomNavigation from './src/navigation/BottomNavigation';
 import LoginScreen from './src/Screens/LoginScreen';
@@ -27,8 +29,10 @@ export default  App = () => {
   }
 
   return (
-    <View style={{flex: 1}}>
-      {content}
-    </View>
+    <Provider store={store}>
+      <View style={{flex: 1}}>
+        {content}
+      </View>
+    </Provider>
   );
 }
