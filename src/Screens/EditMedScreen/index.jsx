@@ -7,15 +7,26 @@ import { addMed } from '../../store/actions/meds.action';
 
 export default EditMedScreen = ({route, navigation}) => {
   const dispatch  = useDispatch();
+  const med = route.params ? route.params.med : false;
+
+  const emptyMed = {
+    name: '',
+    presentation: '',
+    doseAmount: '',
+    doseUnit: '',
+    frequency: '',
+    durationAmount: '',
+    durationUnit: '',
+  };
 
   const { control, handleSubmit, formState: { errors } } = useForm({
-    defaultValues: {
-      firstName: '',
-      lastName: ''
-    }
+    defaultValues: med ? med : emptyMed
   });
   const onSubmit = data => {
     console.log(data);
+
+    // add created unix timestamp
+    data.createdAt = Date.now();
     dispatch(addMed(data));
   }
 

@@ -3,13 +3,19 @@ import screenStyles from '../screenStyles';
 import styles from './styles';
 
 import MedListItem from '../../components/MedListItem';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getMeds } from '../../store/actions/meds.action';
+import { useEffect } from 'react';
 
 export default AllMedsScreen = ({ route, navigation }) => {	
-	const meds = useSelector(state => {
-		console.log(state);
-		return state.meds.meds
-	});
+	
+	const dispatch = useDispatch();
+  const meds = useSelector(state => (state.meds.meds));
+
+  useEffect(() => {
+    dispatch(getMeds());
+  }, []);
+
 	console.log('meds:');
 	console.log(meds);
 

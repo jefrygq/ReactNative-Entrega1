@@ -1,11 +1,7 @@
-import { FILTERED_MEDS, SELECTED_MED, ADD_MED } from "../actions/meds.action";
-import { MEDS } from '../../data/meds';
-
-console.log('meds file');
-console.log(MEDS);
+import { FILTERED_MEDS, SELECTED_MED, ADD_MED, GET_MEDS } from "../actions/meds.action";
 
 const initialState = {
-  meds: MEDS,
+  meds: [],
   filteredMeds: [],
   selected: null,
 };
@@ -22,14 +18,8 @@ const MedsReducer = (state = initialState, action) => {
           med => med.id === action.medId
         ),
       };
-    case ADD_MED:
-      let id = state.meds.length;
-      let payload = {...action.data, id: id};
-
-      return {
-        ...state,
-        meds: [...state.meds, payload]
-      };
+    case GET_MEDS:
+      return {...state, meds: action.meds};
     case FILTERED_MEDS:
       // console.log('changing meds');
       return {

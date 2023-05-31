@@ -1,4 +1,5 @@
-import {createStore, combineReducers} from 'redux';
+import {createStore, combineReducers, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
 
 import UserProfilesReducer from './reducers/userprofiles.reducer';
 import MedsReducer from './reducers/meds.reducer';
@@ -11,4 +12,4 @@ const RootReducer = combineReducers({
     // remiders: RemindersReducer
 });
 
-export default createStore(RootReducer);
+export default createStore(RootReducer, applyMiddleware(thunk));
