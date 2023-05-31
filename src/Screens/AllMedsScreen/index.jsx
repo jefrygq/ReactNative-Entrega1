@@ -4,7 +4,7 @@ import styles from './styles';
 
 import MedListItem from '../../components/MedListItem';
 import { useDispatch, useSelector } from 'react-redux';
-import { getMeds } from '../../store/actions/meds.action';
+import { getMeds, selectedMed } from '../../store/actions/meds.action';
 import { useEffect } from 'react';
 
 export default AllMedsScreen = ({ route, navigation }) => {	
@@ -20,6 +20,7 @@ export default AllMedsScreen = ({ route, navigation }) => {
 	console.log(meds);
 
 	const handlePress = (med) => {
+		dispatch(selectedMed(med.id));
 		navigation.navigate('ViewMed', {med});
 	};
 
