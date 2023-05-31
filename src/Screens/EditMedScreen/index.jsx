@@ -3,7 +3,7 @@ import { useForm, Controller } from "react-hook-form";
 import screenStyles from '../screenStyles';
 import styles from './styles';
 import { useDispatch } from "react-redux";
-import { addMed } from '../../store/actions/meds.action';
+import { addMed, getMeds } from '../../store/actions/meds.action';
 
 export default EditMedScreen = ({route, navigation}) => {
   const dispatch  = useDispatch();
@@ -28,6 +28,8 @@ export default EditMedScreen = ({route, navigation}) => {
     // add created unix timestamp
     data.createdAt = Date.now();
     dispatch(addMed(data));
+    dispatch(getMeds());
+    navigation.navigate('AllMeds');
   }
 
   return (
