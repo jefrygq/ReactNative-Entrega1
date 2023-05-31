@@ -1,38 +1,35 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { useFonts } from "expo-font";
+import { useFonts } from 'expo-font';
 import { Provider } from 'react-redux';
 import store from './src/store';
 
 import BottomNavigation from './src/navigation/BottomNavigation';
 import LoginScreen from './src/Screens/LoginScreen';
 
-export default  App = () => {
+export default App = () => {
   const [isUserLogged, setIsUserLoggedIn] = useState(false);
-
-  let [fontsLoaded] = useFonts ({
+  const [fontsLoaded] = useFonts({
     'Quicksand-Regular': require('./src/assets/fonts/Quicksand-Regular.ttf'),
-    'Quicksand-Medium': require('./src/assets/fonts/Quicksand-Medium.ttf')
+    'Quicksand-Medium': require('./src/assets/fonts/Quicksand-Medium.ttf'),
   });
 
   if (!fontsLoaded) {
     return null;
   }
 
-  let content = <NavigationContainer>
-    <BottomNavigation />
-  </NavigationContainer>;
-
-  if(!isUserLogged) {
-    content = <LoginScreen setIsUserLoggedIn={setIsUserLoggedIn} />
-  }
-
   return (
-    <Provider store={store}>
-      <View style={{flex: 1}}>
-        {content}
-      </View>
-    </Provider>
+  <Provider store={store}>
+    <NavigationContainer>
+    <View style={{ flex: 1 }}>
+      {isUserLogged ? (
+      <BottomNavigation />
+      ) : (
+      <LoginScreen setIsUserLoggedIn={setIsUserLoggedIn} />
+      )}
+    </View>
+    </NavigationContainer>
+  </Provider>
   );
-}
+};
