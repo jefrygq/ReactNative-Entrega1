@@ -1,9 +1,12 @@
-import { Text, View, TextInput, Button, Alert, TouchableHighlight } from "react-native";
-import { useForm, Controller } from "react-hook-form";
+import { Text, View, TextInput, TouchableHighlight } from "react-native";
+import { useForm, Controller, reset } from "react-hook-form";
+import ModalSelector from 'react-native-modal-selector'
+
 import screenStyles from '../screenStyles';
 import styles from './styles';
+
 import { useDispatch } from "react-redux";
-import { addMed, getMeds } from '../../store/actions/meds.action';
+import { addMed, updateMed, getMeds } from '../../store/actions/meds.action';
 
 export default EditMedScreen = ({route, navigation}) => {
   const dispatch  = useDispatch();
@@ -12,14 +15,14 @@ export default EditMedScreen = ({route, navigation}) => {
   const emptyMed = {
     name: '',
     presentation: '',
-    doseAmount: '',
-    doseUnit: '',
-    frequency: '',
+    dose: '',
+    frequencyAmount: '',
+    frequencyUnit: '',
     durationAmount: '',
     durationUnit: '',
   };
 
-  const { control, handleSubmit, formState: { errors } } = useForm({
+  const { control, handleSubmit, reset, formState: { errors } } = useForm({
     defaultValues: med ? med : emptyMed
   });
   const onSubmit = data => {
@@ -27,10 +30,20 @@ export default EditMedScreen = ({route, navigation}) => {
 
     // add created unix timestamp
     data.createdAt = Date.now();
-    dispatch(addMed(data));
+
+    if (med) {
+      console.log('updating existing med');
+      dispatch(updateMed({key: med.id, med: data}));
+    } else {
+      console.log('adding new med');
+      dispatch(addMed(data));;
+    }
+    reset();
+
+    // redirect to all meds screen
     dispatch(getMeds());
-    navigation.navigate('AllMeds');
-  }
+    navigation.navigate('MedsNavigation' , { screen: 'AllMeds' });
+  };
 
   return (
     <View style={screenStyles.screenContainer}>
@@ -66,7 +79,7 @@ export default EditMedScreen = ({route, navigation}) => {
               <Text style={styles.label}>Presentation</Text>
               <TextInput
                 style={styles.input}
-                placeholder="Ex: 50mg, 10ml, 2.5oz"
+                placeholder="Ex: 50mg, 10ml, 2.5oz, 3%"
                 onBlur={onBlur}
                 onChangeText={onChange}
                 value={value}
@@ -76,8 +89,28 @@ export default EditMedScreen = ({route, navigation}) => {
           name="presentation"
         />
 
+        <Controller
+          control={control}
+          rules={{
+            maxLength: 100,
+          }}
+          render={({ field: { onChange, onBlur, value } }) => (
+            <View style={styles.formControl}>
+              <Text style={styles.label}>Dose</Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Ex: 2 spoons, 5 cc, 1 pill"
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+              />
+            </View>
+          )}
+          name="dose"
+        />
+
         <View style={styles.formControl}>
-          <Text style={styles.label}>Dose</Text>
+          <Text style={styles.label}>Frequency</Text>
           <View style={screenStyles.rowContainer}>
             <Controller
               control={control}
@@ -91,48 +124,30 @@ export default EditMedScreen = ({route, navigation}) => {
                   onBlur={onBlur}
                   onChangeText={onChange}
                   value={value}
+                  keyboardType="numeric"
                 />
               )}
-              name="doseAmount"
+              name="frequencyAmount"
             />
             <Controller
               control={control}
-              rules={{
-                maxLength: 100,
-              }}
-              render={({ field: { onChange, onBlur, value } }) => (
-                <TextInput
-                  style={styles.input}
-                  placeholder="Ex: tablets, spoons, CCs"
-                  onBlur={onBlur}
-                  onChangeText={onChange}
-                  value={value}
+              render={({ field: { onChange, onBlur, value} }) => (
+                <ModalSelector
+                  style={styles.inputSelect}
+                  data={[
+                    {key: 'minutes', label: "Minutes"},
+                    {key: 'hours', label: "Hours"},
+                    {key: 'days', label: "Days"},
+                    {key: 'weeks', label: "Weeks"}
+                  ]}
+                  initValue={value ? value : "minutes"}
+                  onChange={(option)=>{ onChange(option.key) }} 
                 />
               )}
-              name="doseUnit"
+              name="frequencyUnit"
             />
           </View>
         </View>
-
-        <Controller
-          control={control}
-          rules={{
-            maxLength: 100,
-          }}
-          render={({ field: { onChange, onBlur, value } }) => (
-            <View style={styles.formControl}>
-              <Text style={styles.label}>Frequency</Text>
-              <TextInput
-                style={styles.input}
-                placeholder="Ex: Every 8 hrs, Once a day, With every meal"
-                onBlur={onBlur}
-                onChangeText={onChange}
-                value={value}
-              />
-            </View>
-          )}
-          name="frequency"
-        />
 
         <View style={styles.formControl}>
           <Text style={styles.label}>Duration</Text>
@@ -149,6 +164,7 @@ export default EditMedScreen = ({route, navigation}) => {
                   onBlur={onBlur}
                   onChangeText={onChange}
                   value={value}
+                  keyboardType="numeric"
                 />
               )}
               name="durationAmount"
@@ -159,12 +175,17 @@ export default EditMedScreen = ({route, navigation}) => {
                 maxLength: 100,
               }}
               render={({ field: { onChange, onBlur, value } }) => (
-                <TextInput
-                  style={styles.input}
-                  placeholder="Days, Weeks, Months"
-                  onBlur={onBlur}
-                  onChangeText={onChange}
-                  value={value}
+                <ModalSelector
+                  style={styles.inputSelect}
+                  data={[
+                    {key: "days", label: "Days"},
+                    {key: "weeks", label: "Weeks"},
+                    {key: "months", label: "Months"},
+                    {key: "years", label: "Years"},
+                    {key: "forever", label: "Forever"}
+                  ]}
+                  initValue={value ? value : "days"}
+                  onChange={(option)=>{ onChange(option.key) }} 
                 />
               )}
               name="durationUnit"

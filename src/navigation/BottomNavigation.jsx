@@ -1,4 +1,4 @@
-import { Text, View, Image, TouchableHighlight } from 'react-native';
+import { Text, View, Image, TouchableHighlight, Keyboard } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import colors from '../constants/colors';
@@ -11,6 +11,7 @@ import MedsArchiveScreen from '../Screens/MedsArchiveScreen';
 
 import SettingsNavigation from '../navigation/SettingsNavigation';
 import MedsNavigation from './MedsNavigation';
+import { useEffect, useState } from 'react';
 
 
 export default BottomNavigation = () => {
@@ -24,13 +25,36 @@ export default BottomNavigation = () => {
     );
   };
 
+  const [keyboardShown, setKeyboardShown] = useState();
+  useEffect(() => {
+    const keyboardDidShowListener = Keyboard.addListener(
+      'keyboardDidShow',
+      () => {
+        setKeyboardShown(true);
+      }
+    );
+    const keyboardDidHideListener = Keyboard.addListener(
+      'keyboardDidHide',
+      () => {
+        setKeyboardShown(false);
+      }
+    );
+
+    return () => {
+      keyboardDidHideListener.remove();
+      keyboardDidShowListener.remove();
+    };
+  }, []);
+
   return (
     <Tab.Navigator
       screenOptions={{
+        tabBarHideOnKeyboard: true,
         tabBarShowLabel: false,
         tabBarStyle: {
           ...styles.shadow,
-          ...styles.navContainer
+          ...styles.navContainer,
+          ...(keyboardShown && styles.hiddenNav)
         },
         headerTitleStyle: screenStyles.headerTitleStyle,
       }}

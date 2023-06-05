@@ -7,7 +7,7 @@ export default styles = StyleSheet.create({
 	},
 	formControl: {
 		marginVertical: 10,
-		height: 50
+		height: 60
 	},
 	label: {
 		fontWeight: 'bold',
@@ -16,6 +16,10 @@ export default styles = StyleSheet.create({
 		flex: 1,
 		borderBottomWidth: 1,
 		borderColor: Colors.secondary,
+	},
+	inputSelect: {
+		flex: 1,
+		marginLeft: 10
 	},
 	submit: {
 		marginTop: 20,

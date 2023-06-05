@@ -16,8 +16,8 @@ export default AllMedsScreen = ({ route, navigation }) => {
     dispatch(getMeds());
   }, []);
 
-	console.log('meds:');
-	console.log(meds);
+	// console.log('meds:');
+	// console.log(meds);
 
 	const handlePress = (med) => {
 		dispatch(selectedMed(med.id));

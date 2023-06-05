@@ -2,6 +2,7 @@ import {API_URL} from '../../constants/database';
 
 export const SELECTED_MED = 'SELECTED_MED';
 export const ADD_MED = 'ADD_MED';
+export const UPDATE_MED = 'UPDATE_MED';
 export const GET_MEDS = 'GET_MEDS';
 export const FILTERED_MEDS = 'FILTERED_MEDS';
 
@@ -29,7 +30,32 @@ export const addMed = data => {
 
       dispatch({
         type: ADD_MED,
-        meds: result
+        medId: result.name
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+};
+
+export const updateMed = data => {
+  return async dispatch => {
+    try {
+      const response = await fetch(`${API_URL}/meds/${data.key}.json`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data.med)
+      });
+
+      const result = await response.json();
+      console.log('update ajax result:');
+      console.log(result);
+
+      dispatch({
+        type: UPDATE_MED,
+        medId: result.name
       });
     } catch (error) {
       console.log(error);

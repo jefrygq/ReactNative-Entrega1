@@ -5,6 +5,7 @@ export default screenStyles = StyleSheet.create({
   screenContainer: {
     flex: 1,
     padding: 20,
+    paddingBottom: Platform.OS === "android" ? 125 : 135,
     backgroundColor: Colors.background,
   },
   headerTitleStyle: {
