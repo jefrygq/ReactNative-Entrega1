@@ -6,6 +6,7 @@ import MedListItem from '../../components/MedListItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMeds, selectedMed } from '../../store/actions/meds.action';
 import { useEffect } from 'react';
+import ScreenView from '../ScreenView';
 
 export default AllMedsScreen = ({ route, navigation }) => {	
 	
@@ -25,13 +26,13 @@ export default AllMedsScreen = ({ route, navigation }) => {
 	};
 
 	return (
-		<View style={screenStyles.screenContainer}>
+		<ScreenView noScroll={true}>
 			<FlatList
 				data={meds}
 				renderItem={({item}) => <MedListItem med={item} handlePress={handlePress} />}
 				keyExtractor={item => item.id}
 			/>
-		</View>
+		</ScreenView>
 	);
 }
 

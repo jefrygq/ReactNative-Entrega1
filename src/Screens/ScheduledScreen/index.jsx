@@ -5,19 +5,20 @@ import MedsList from '../../components/MedsList/MedsList';
 
 import screenStyles from '../screenStyles';
 import styles from './styles';
+import ScreenView from '../ScreenView';
 
 export default ScheduledScreen = ({ route, navigation }) => {
 	/* Get the params */
 	// const { itemId, otherParam } = route.params;
 
   return (
-    <View style={screenStyles.screenContainer}>
+    <ScreenView noScroll={true}>
       <Header title={'Maria Alarcon'} buttonLeft={<Button title={'Perfil'} />} buttonRight={<Button title={'Buscar'} />} />
       <View style={styles.internalContainer}>
         <Text>Today</Text>
         <MedsList meds={[]} />
       </View>
-    </View>
+    </ScreenView>
   );
 }
 

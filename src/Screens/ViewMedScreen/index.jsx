@@ -2,12 +2,13 @@ import React from 'react';
 import {View, Text, Button, StyleSheet} from 'react-native';
 import screenStyles from '../screenStyles';
 import { useSelector } from 'react-redux';
+import ScreenView from '../ScreenView';
 
 const ViewMedScreen = ({route, navigation}) => {
   const med = useSelector(state => state.meds.current);
   
   return (
-    <View style={screenStyles.screenContainer}>
+    <ScreenView>
       <Text>createdAt: {med.createdAt}</Text>
       <Text>doseAmount: {med.doseAmount}</Text>
       <Text>doseUnit: {med.doseUnit}</Text>
@@ -19,7 +20,7 @@ const ViewMedScreen = ({route, navigation}) => {
       <Text>presentation: {med.presentation}</Text>
 
       <Button title="Edit med" onPress={() => navigation.navigate('EditMed', {med})} />
-    </View>
+    </ScreenView>
   );
 }
 

@@ -10,31 +10,26 @@ export default styles = StyleSheet.create({
 		height: 60
 	},
 	label: {
-		fontWeight: 'bold',
+		fontSize: 16,
+		color: Colors.tertiary,
 	},
 	input: {
 		flex: 1,
 		borderBottomWidth: 1,
-		borderColor: Colors.secondary,
+		borderColor: Colors.tertiary,
 	},
 	inputSelect: {
 		flex: 1,
 		marginLeft: 10
 	},
-	submit: {
-		marginTop: 20,
-		backgroundColor: Colors.primary,
-		padding: 10,
-		borderRadius: 20,
-		alignContent: 'center',
-		justifyContent: 'center'
-	},
-	submitText: {
-		color: Colors.white,
-		textAlign: 'center'
-	},
 	error: {
 		color: Colors.red,
 		fontSize: 12
+	},
+	imageUploader: {
+		width: 100,
+		height: 100,
+		borderRadius: 50,
+		backgroundColor: Colors.tertiary,
 	}
 });

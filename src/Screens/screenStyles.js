@@ -7,6 +7,7 @@ export default screenStyles = StyleSheet.create({
     padding: 20,
     paddingBottom: Platform.OS === "android" ? 125 : 135,
     backgroundColor: Colors.background,
+    maxHeight: '100%',
   },
   headerTitleStyle: {
     fontSize: 22,
@@ -16,5 +17,45 @@ export default screenStyles = StyleSheet.create({
   rowContainer: {
     flex: 1,
     flexDirection: 'row',
-  }
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  card: {
+    backgroundColor: Colors.white,
+    borderRadius: 15,
+    shadowColor: Colors.secondary,
+    shadowOffset: {
+      width: 0,
+      height: 5,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.5,
+    elevation: 5,
+    padding: 20,
+    marginVertical: 10,
+    width: '100%',
+    maxWidth: '100%',
+  },
+  buttonPrimary: {
+    marginTop: 20,
+		backgroundColor: Colors.primary,
+		padding: 10,
+		borderRadius: 20,
+		alignContent: 'center',
+		justifyContent: 'center'
+  },
+  buttonPrimaryText: {
+    color: Colors.white,
+		textAlign: 'center'
+  },
+  shadow: {
+    shadowColor: Colors.secondary,
+    shadowOffset: {
+      width: 0,
+      height: 5
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.5,
+    elevation: 5
+  },
 });

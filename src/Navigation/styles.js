@@ -3,10 +3,10 @@ import Colors from "../constants/colors";
 
 export default styles = StyleSheet.create({
   shadow: {
-    shadowColor: Colors.actionColor,
+    shadowColor: Colors.secondary,
     shadowOffset: {
       width: 0,
-      height: 10
+      height: 5
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.5,
@@ -15,17 +15,19 @@ export default styles = StyleSheet.create({
   navContainer: {
     position: 'absolute',
     bottom: Platform.OS === 'ios' ? 30 : 15,
-    left: 15,
-    right: 15,
-    backgroundColor: '#ffffff',
+    left: 20,
+    right: 20,
+    backgroundColor: Colors.white,
     borderRadius: 15,
     height: 80, 
+    justifyContent: 'space-around',
+    paddingHorizontal: 10,
   },
   navItem: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     top: Platform.OS === 'ios' ? 15 : 0,
+    width: '100%'
   },
   navIcon: {
     width: 32,

@@ -4,6 +4,7 @@ import { useForm, Controller } from "react-hook-form";
 import screenStyles from '../screenStyles';
 import styles from './styles';
 import EditMedScreen from "../EditMedScreen";
+import ScreenView from "../ScreenView";
 
 export default EditProfileScreen = () => {
   const { control, handleSubmit, formState: { errors } } = useForm({
@@ -15,7 +16,7 @@ export default EditProfileScreen = () => {
   const onSubmit = data => console.log(data);
 
   return (
-    <View>
+    <ScreenView>
       <Controller
         control={control}
         rules={{
@@ -50,6 +51,6 @@ export default EditProfileScreen = () => {
       />
 
       <Button title="Submit" onPress={handleSubmit(onSubmit)} />
-    </View>
+    </ScreenView>
   );
 }
