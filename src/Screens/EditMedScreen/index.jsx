@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Text, View, TextInput, TouchableHighlight, Image, ScrollView } from "react-native";
 import { useForm, Controller, reset } from "react-hook-form";
 import ModalSelector from 'react-native-modal-selector'
@@ -8,10 +9,26 @@ import styles from './styles';
 
 import { useDispatch } from "react-redux";
 import { addMed, updateMed, getMeds } from '../../store/actions/meds.action';
+import MedImages from "../../components/MedImages";
 
 export default EditMedScreen = ({route, navigation}) => {
+  console.log('route');
+  console.log(route);
   const dispatch  = useDispatch();
-  const med = route.params ? route.params.med : false;
+
+  const [imageFront, setImageFront] = useState('');
+  const [imageBack, setImageBack] = useState('');
+  const [imageMed, setImageMed] = useState('');
+  
+  const med = route.params && route.params.med ? route.params.med : null;
+
+  useEffect(() => {
+    if (med) {
+      setImageFront(med.imageFront);
+      setImageBack(med.imageBack);
+      setImageMed(med.imageMed);
+    }
+  }, [med]);
 
   const emptyMed = {
     name: '',
@@ -26,8 +43,14 @@ export default EditMedScreen = ({route, navigation}) => {
   const { control, handleSubmit, reset, formState: { errors } } = useForm({
     defaultValues: med ? med : emptyMed
   });
+
   const onSubmit = data => {
     console.log(data);
+
+    // add images to data
+    data.imageFront = imageFront;
+    data.imageBack = imageBack;
+    data.imageMed = imageMed;
 
     // add created unix timestamp
     data.createdAt = Date.now();
@@ -49,11 +72,8 @@ export default EditMedScreen = ({route, navigation}) => {
   return (
     <ScreenView>
       <View style={styles.form}>
-        {/* <View style={screenStyles.card}>
-          <View style={styles.imageUploader}>
-            <Image source={{uri: 'https://picsum.photos/200'}} style={styles.image} />
-          </View>
-        </View> */}
+        <MedImages imageFront={imageFront} setImageFront={setImageFront} imageBack={imageBack} setImageBack={setImageBack} imageMed={imageMed} setImageMed={setImageMed} />
+        
         <View style={screenStyles.card}>
           <Controller
             control={control}
@@ -212,7 +232,7 @@ export default EditMedScreen = ({route, navigation}) => {
                 <Text style={styles.label}>Starting On:</Text>
                 <TextInput
                   style={styles.input}
-                  placeholder="June 10, 6:00pm"
+                  placeholder="Ex: June 10, 6:00pm"
                   onBlur={onBlur}
                   onChangeText={onChange}
                   value={value}

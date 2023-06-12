@@ -1,4 +1,5 @@
 import {API_URL} from '../../constants/database';
+import * as FileSystem from 'expo-file-system';
 
 export const SELECTED_MED = 'SELECTED_MED';
 export const ADD_MED = 'ADD_MED';
@@ -16,6 +17,10 @@ export const selectedMed = id => (
 export const addMed = data => {
   return async dispatch => {
     try {
+      data.imageFront = saveImageToDevice(data.imageFront);
+      data.imageBack = saveImageToDevice(data.imageBack);
+      data.imageMed = saveImageToDevice(data.imageMed);
+
       const response = await fetch(`${API_URL}/meds.json`, {
         method: 'POST',
         headers: {
@@ -97,3 +102,21 @@ export const filteredMeds = category => (
     categoryId: category
   }
 );
+
+
+const saveImageToDevice = image => {
+  const fileName = image.split('/').pop();
+  const newPath = FileSystem.documentDirectory + fileName;
+
+  try {
+      FileSystem.moveAsync({
+          from: image,
+          to: newPath
+      });
+
+      return newPath;
+  } catch (error) {
+      console.log(error);
+      throw error;
+  }
+}

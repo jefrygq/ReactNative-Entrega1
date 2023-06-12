@@ -23,11 +23,11 @@ export default App = () => {
   <Provider store={store}>
     <NavigationContainer>
     <View style={{ flex: 1 }}>
-      {isUserLogged ? (
+      {/* {isUserLogged ? ( */}
       <BottomNavigation />
-      ) : (
+      {/* ) : (
       <LoginScreen setIsUserLoggedIn={setIsUserLoggedIn} />
-      )}
+      )} */}
     </View>
     </NavigationContainer>
   </Provider>

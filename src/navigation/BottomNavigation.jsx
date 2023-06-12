@@ -93,10 +93,7 @@ export default BottomNavigation = () => {
       }} />
       <Tab.Screen name="Add New" component={EditMedScreen} options={({ navigation, route }) => ({
         tabBarStyle: { display: "none" },
-        headerLeft: (props) => {
-          console.log(props);
-          return (<TouchableHighlight style={screenStyles.headerButton} onPress={() => {navigation.navigate('MedsNavigation')}}><Text style={screenStyles.headerButtonText}>Cancel</Text></TouchableHighlight>);
-        },
+        headerLeft: () => (<TouchableHighlight style={screenStyles.headerButton} onPress={() => {navigation.navigate('MedsNavigation')}}><Text style={screenStyles.headerButtonText}>Cancel</Text></TouchableHighlight>),
         tabBarIcon: ({focused}) => (
           <Image 
             source={require('../assets/icons/add.png')}
