@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Button, StyleSheet} from 'react-native';
+import {View, Text, Button, Image, StyleSheet} from 'react-native';
 import screenStyles from '../screenStyles';
 import { useSelector } from 'react-redux';
 import ScreenView from '../ScreenView';
@@ -9,6 +9,9 @@ const ViewMedScreen = ({route, navigation}) => {
   
   return (
     <ScreenView>
+      <Image style={{width: 100, height: 100}} source={{uri: med.imageFront}} />
+      <Image style={{width: 100, height: 100}} source={{uri: med.imageBack}} />
+      <Image style={{width: 100, height: 100}} source={{uri: med.imageMed}} />
       <Text>createdAt: {med.createdAt}</Text>
       <Text>doseAmount: {med.doseAmount}</Text>
       <Text>doseUnit: {med.doseUnit}</Text>
