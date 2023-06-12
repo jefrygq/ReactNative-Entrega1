@@ -13,6 +13,7 @@ export default screenStyles = StyleSheet.create({
     fontSize: 22,
     fontFamily: "Quicksand-Medium",
     color: Colors.primary,
+    textAlign: "center",
   },
   rowContainer: {
     flex: 1,
@@ -58,4 +59,17 @@ export default screenStyles = StyleSheet.create({
     shadowRadius: 3.5,
     elevation: 5
   },
+  headerButton: {
+    borderColor: Colors.tertiary,
+    borderWidth: 1,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    marginHorizontal: 20,
+    borderRadius: 20,
+    alignContent: 'center',
+    justifyContent: 'center'
+  },
+  headerButtonText: {
+    color: Colors.tertiary,
+  }
 });

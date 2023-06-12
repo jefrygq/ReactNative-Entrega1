@@ -11,6 +11,7 @@ const SettingsNavigation = () => {
   return (
     <Stack.Navigator screenOptions={{
       headerTitleStyle: screenStyles.headerTitleStyle,
+      headerTitleAlign: "center"
     }}>
       <Stack.Screen name="Settings" component={SettingsScreen} />
       <Stack.Screen name="Profile" component={ProfileScreen} />

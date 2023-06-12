@@ -6,7 +6,7 @@ export default styles = StyleSheet.create({
 		flexDirection: 'column',
 	},
 	formControl: {
-		marginVertical: 10,
+		marginBottom: 15,
 		height: 60
 	},
 	label: {

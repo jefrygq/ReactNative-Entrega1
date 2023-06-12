@@ -57,6 +57,7 @@ export default BottomNavigation = () => {
           ...(keyboardShown && styles.hiddenNav)
         },
         headerTitleStyle: screenStyles.headerTitleStyle,
+        headerTitleAlign: "center"
       }}
     >
       <Tab.Screen name="Upcoming" component={ScheduledScreen} options={{
@@ -67,10 +68,10 @@ export default BottomNavigation = () => {
               resizeMode={'contain'}
               style={{
                 ...styles.navIcon,
-                tintColor: focused ? colors.actionColor : '#748c94'
+                tintColor: focused ? colors.actionColor : colors.tertiary
               }}
             />
-            <Text style={{color: focused ? colors.actionColor : '#748c94', ...styles.navText}}>Scheduled</Text>
+            <Text style={{color: focused ? colors.actionColor : colors.tertiary, ...styles.navText}}>Scheduled</Text>
           </View>
         )
       }} />
@@ -83,14 +84,19 @@ export default BottomNavigation = () => {
               resizeMode={'contain'}
               style={{
                 ...styles.navIcon,
-                tintColor: focused ? colors.actionColor : '#748c94'
+                tintColor: focused ? colors.actionColor : colors.tertiary
               }}
             />
-            <Text style={{color: focused ? colors.actionColor : '#748c94', ...styles.navText}}>All Meds</Text>
+            <Text style={{color: focused ? colors.actionColor : colors.tertiary, ...styles.navText}}>All Meds</Text>
           </View>
         )
       }} />
-      <Tab.Screen name="Add New" component={EditMedScreen} options={{
+      <Tab.Screen name="Add New" component={EditMedScreen} options={({ navigation, route }) => ({
+        tabBarStyle: { display: "none" },
+        headerLeft: (props) => {
+          console.log(props);
+          return (<TouchableHighlight style={screenStyles.headerButton} onPress={() => {navigation.navigate('MedsNavigation')}}><Text style={screenStyles.headerButtonText}>Cancel</Text></TouchableHighlight>);
+        },
         tabBarIcon: ({focused}) => (
           <Image 
             source={require('../assets/icons/add.png')}
@@ -103,7 +109,7 @@ export default BottomNavigation = () => {
           />
         ),
         tabBarButton: (props) => (<CustomAddButton {...props} />)
-      }} />
+      })} />
       <Tab.Screen name="History" component={MedsArchiveScreen} options={{
         tabBarIcon: ({focused}) => (
           <View style={styles.navItem}>
@@ -112,10 +118,10 @@ export default BottomNavigation = () => {
               resizeMode={'contain'}
               style={{
                 ...styles.navIcon,
-                tintColor: focused ? colors.actionColor : '#748c94'
+                tintColor: focused ? colors.actionColor : colors.tertiary
               }}
             />
-            <Text style={{color: focused ? colors.actionColor : '#748c94', ...styles.navText}}>History</Text>
+            <Text style={{color: focused ? colors.actionColor : colors.tertiary, ...styles.navText}}>History</Text>
           </View>
         )
       }} />
@@ -128,10 +134,10 @@ export default BottomNavigation = () => {
               resizeMode={'contain'}
               style={{
                 ...styles.navIcon,
-                tintColor: focused ? colors.actionColor : '#748c94'
+                tintColor: focused ? colors.actionColor : colors.tertiary
               }}
             />
-            <Text style={{color: focused ? colors.actionColor : '#748c94', ...styles.navText}}>Settings</Text>
+            <Text style={{color: focused ? colors.actionColor : colors.tertiary, ...styles.navText}}>Settings</Text>
           </View>
         )
       }} />

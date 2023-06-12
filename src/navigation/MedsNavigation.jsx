@@ -11,6 +11,7 @@ const MedsNavigation = () => {
   return (
     <Stack.Navigator screenOptions={{
       headerTitleStyle: screenStyles.headerTitleStyle,
+      headerTitleAlign: "center"
     }}>
       <Stack.Screen name="AllMeds" component={AllMedsScreen} />
       <Stack.Screen name="ViewMed" component={ViewMedScreen}
