@@ -1,4 +1,4 @@
-import {API_URL} from '../../constants/database';
+import {API_URL} from '../../constants/firebase';
 import * as FileSystem from 'expo-file-system';
 
 export const SELECTED_MED = 'SELECTED_MED';

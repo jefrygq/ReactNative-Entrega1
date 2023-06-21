@@ -2,7 +2,7 @@ import { Platform, StyleSheet } from "react-native";
 import colors from "../../constants/colors";
 
 export default styles = StyleSheet.create({
-  container: {
+  form: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
@@ -11,7 +11,7 @@ export default styles = StyleSheet.create({
   logoContainer: {
     alignItems: "center",
   },
-  loginForm: {
+  registerForm: {
     width: "100%",
     alignItems: "center",
     marginTop: 50,
@@ -25,27 +25,33 @@ export default styles = StyleSheet.create({
     fontSize: 34,
     fontFamily: "Quicksand-Medium",
   },
+  title: {
+    color: colors.tertiary,
+    fontSize: 24,
+    marginBottom: 20
+  },
   input: {
     width: "80%",
     height: 50,
     backgroundColor: colors.white,
-    borderRadius: 10,
+    borderRadius: 30,
     padding: 10,
+    paddingHorizontal: 20,
     margin: 10,
   },
   loginButton: {
     width: "80%",
     height: 50,
     backgroundColor: colors.actionColor,
-    borderRadius: 10,
+    borderRadius: 30,
     padding: 10,
-    margin: 10,
+    margin: 20,
     justifyContent: "center",
     alignItems: "center"
   },
   loginButtonText: {
     color: colors.white,
-    fontSize: 16,
+    fontSize: 18,
     fontFamily: "Quicksand-Medium",
   },
   secondaryLink: {

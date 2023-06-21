@@ -5,7 +5,8 @@ export default {
   secondary: "#3D3B4E",
   tertiary: "#748c94",
   actionColor: "#FD58af",
-  disabledColor: "#272638",
+  disabledColor: "#695f75",
+  highlight: "#009e94",
   black: "#000",
   white: "#fff",
   red: "#F00"

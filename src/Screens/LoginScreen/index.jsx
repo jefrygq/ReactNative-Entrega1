@@ -1,8 +1,9 @@
-import { View, TextInput, Text, Image, TouchableHighlight } from "react-native";
+import { View, TextInput, Text, Image, TouchableOpacity } from "react-native";
+import screenStyles from '../screenStyles';
 import styles from './styles';
 import logo from '../../assets/img/mlogo.png';
 
-const LoginScreen = ({setIsUserLoggedIn}) => {
+const LoginScreen = ({route, navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.logoContainer}>
@@ -13,9 +14,16 @@ const LoginScreen = ({setIsUserLoggedIn}) => {
         <TextInput style={styles.input} placeholder="Email" />
         <TextInput style={styles.input} placeholder="Password" />
 
-        <TouchableHighlight title="Login" onPress={() => setIsUserLoggedIn(true)} style={styles.loginButton}>
+        <TouchableOpacity title="Login" onPress={() => console.log('Login')} style={styles.loginButton}>
           <Text style={styles.loginButtonText}>Login</Text>
-        </TouchableHighlight>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.secondaryLink} onPress={() => navigation.navigate('Register')} style={styles.registerButton}>
+          <Text style={styles.secondaryLink} >Register</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.secondaryLink} onPress={() => navigation.navigate('ForgotPassword')} style={styles.registerButton}>
+          <Text style={styles.secondaryLink} >Forgot Password?</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );

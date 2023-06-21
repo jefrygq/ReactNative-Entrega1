@@ -1,4 +1,4 @@
-import { Text, View, Image, TouchableHighlight, Keyboard } from 'react-native';
+import { Text, View, Image, TouchableOpacity, Keyboard } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import colors from '../constants/colors';
@@ -19,9 +19,9 @@ export default BottomNavigation = () => {
 
   const CustomAddButton = ({children, onPress}) => {
     return (
-      <TouchableHighlight onPress={onPress} style={styles.addButton}>
+      <TouchableOpacity onPress={onPress} style={styles.addButton}>
         <View>{children}</View>
-      </TouchableHighlight>
+      </TouchableOpacity>
     );
   };
 
@@ -93,7 +93,7 @@ export default BottomNavigation = () => {
       }} />
       <Tab.Screen name="Add New" component={EditMedScreen} options={({ navigation, route }) => ({
         tabBarStyle: { display: "none" },
-        headerLeft: () => (<TouchableHighlight style={screenStyles.headerButton} onPress={() => {navigation.navigate('MedsNavigation')}}><Text style={screenStyles.headerButtonText}>Cancel</Text></TouchableHighlight>),
+        headerLeft: () => (<TouchableOpacity style={screenStyles.headerButton} onPress={() => {navigation.navigate('MedsNavigation')}}><Text style={screenStyles.headerButtonText}>Cancel</Text></TouchableOpacity>),
         tabBarIcon: ({focused}) => (
           <Image 
             source={require('../assets/icons/add.png')}

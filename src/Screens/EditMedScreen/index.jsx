@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Text, View, TextInput, TouchableHighlight, Image, ScrollView } from "react-native";
+import { Text, View, TextInput, TouchableOpacity, Image, ScrollView } from "react-native";
 import { useForm, Controller, reset } from "react-hook-form";
 import ModalSelector from 'react-native-modal-selector'
 import ScreenView from "../ScreenView";
@@ -243,9 +243,9 @@ export default EditMedScreen = ({route, navigation}) => {
           />
           
 
-          <TouchableHighlight style={screenStyles.buttonPrimary} onPress={handleSubmit(onSubmit)}>
+          <TouchableOpacity style={screenStyles.buttonPrimary} onPress={handleSubmit(onSubmit)}>
             <Text style={screenStyles.buttonPrimaryText}>Save</Text>
-          </TouchableHighlight>
+          </TouchableOpacity>
         </View>
       </View>
     </ScreenView>
