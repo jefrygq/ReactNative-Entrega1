@@ -3,6 +3,17 @@ import { Provider } from 'react-redux';
 import store from './src/store'
 import MainNavigation from './src/navigation';
 
+import {init} from './src/database'
+
+init()
+.then(() => {
+  console.log('Initialized database');
+})
+.catch(err => {
+  console.log('Initializing db failed');
+  console.log(err);
+});
+
 export default App = () => {
   const [fontsLoaded] = useFonts({
     'Quicksand-Regular': require('./src/assets/fonts/Quicksand-Regular.ttf'),

@@ -18,10 +18,10 @@ const LoginScreen = ({route, navigation}) => {
           <Text style={styles.loginButtonText}>Login</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.secondaryLink} onPress={() => navigation.navigate('Register')} style={styles.registerButton}>
+        <TouchableOpacity style={styles.secondaryLink} onPress={() => navigation.navigate('Register')} >
           <Text style={styles.secondaryLink} >Register</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.secondaryLink} onPress={() => navigation.navigate('ForgotPassword')} style={styles.registerButton}>
+        <TouchableOpacity style={styles.secondaryLink} onPress={() => navigation.navigate('ForgotPassword')} >
           <Text style={styles.secondaryLink} >Forgot Password?</Text>
         </TouchableOpacity>
       </View>

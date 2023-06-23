@@ -1,11 +1,12 @@
 import { AUTH_SIGNUP_URL } from "../../constants/firebase";
+import { insertProfile } from "../../database/profiles";
 
 export const SIGN_UP = 'SIGN_UP';
 
 export const signUp = (email, password) => {
   return async dispatch => {
     try {
-      const response = await fetch (URL_AUTH_SIGNUP,
+      const response = await fetch (AUTH_SIGNUP_URL,
       {
         method: 'POST',
         headers: {
@@ -19,11 +20,14 @@ export const signUp = (email, password) => {
       });
       
       const result = await response.json();
-      // console.log(response);
+      console.log(result);
+
+      // save place to db
+      const dbResult = await insertProfile(result.localId, email);
+      console.log(dbResult);
 
       dispatch({
         type: SIGN_UP,
-        token: result.idToken,
         userId: result.localId,
         email: email
       });

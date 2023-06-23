@@ -1,13 +1,11 @@
 import { Text, View, TextInput, TouchableOpacity, Image, ScrollView } from "react-native";
-import { useForm, Controller, reset } from "react-hook-form";
-import ModalSelector from 'react-native-modal-selector'
-import ScreenView from "../ScreenView";
+import { useForm, Controller } from "react-hook-form";
 
-import screenStyles from '../screenStyles';
 import styles from './styles';
 import logo from '../../assets/img/mlogo.png';
 
 import { useDispatch } from "react-redux";
+import { signUp } from "../../store/actions/auth.action";
 
 export default RegisterScreen = ({route, navigation}) => {
   const dispatch  = useDispatch();
@@ -25,11 +23,8 @@ export default RegisterScreen = ({route, navigation}) => {
   const onSubmit = data => {
     console.log(data);
 
-    if(formState.formIsValid){
-      dispatch(signUp(formState.inputValues.email, formState.inputValues.password));
-    } else {
-      Alert.alert('Invalid Input', 'Please check the errors in the form', [{text: 'Ok'}]);
-    }
+    dispatch(signUp(data.email, data.password));
+    reset(emptyAuth);
   };
 
   return (
