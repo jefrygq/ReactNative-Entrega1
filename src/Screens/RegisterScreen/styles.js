@@ -22,7 +22,7 @@ export default styles = StyleSheet.create({
   },
   logoText: {
     color: colors.primary,
-    fontSize: 34,
+    fontSize: 36,
     fontFamily: "Quicksand-Medium",
   },
   title: {
@@ -58,5 +58,13 @@ export default styles = StyleSheet.create({
     color: colors.tertiary,
     fontSize: 16,
     marginTop: 15,
+  },
+  error: {
+    color: colors.red,
+    fontSize: 12,
+    borderTopColor: colors.red,
+    borderTopWidth: 1,
+    width: "72%",
+    textAlign: 'center'
   }
 });

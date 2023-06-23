@@ -6,7 +6,7 @@ import { View } from 'react-native';
 
 
 const MainNavigation = () => {
-  const userId = useSelector(state => state.auth.userId);
+  const userId = useSelector(state => state.auth.currentUserId);
 
   return (
     <NavigationContainer>

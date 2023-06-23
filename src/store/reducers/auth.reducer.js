@@ -1,5 +1,5 @@
 import Profile from "../../models/Profile";
-import { SIGN_UP } from "../actions/auth.action";
+import { LOGIN, LOGOUT, SIGN_UP } from "../actions/auth.action";
 
 const initialState = {
   currentUserId: null,
@@ -13,6 +13,12 @@ const AuthReducer = (state = initialState, action) => {
       const profile = new Profile(action.userId, action.email);
       const newProfiles = [...state.profiles, profile];
       return {...state, currentUserId: action.userId, profiles: newProfiles};
+    case LOGIN:
+      const newState = {...state, currentUserId: action.userId};
+      console.log(newState);
+      return newState;
+    case LOGOUT:
+      return {...state, currentUserId: null};
   
     default:
       return state;

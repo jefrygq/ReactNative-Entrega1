@@ -28,7 +28,6 @@ export default RegisterScreen = ({route, navigation}) => {
   };
 
   return (
-    
     <View style={styles.form}>
       <View style={styles.logoContainer}>
         <Image source={logo} style={styles.logo} />
