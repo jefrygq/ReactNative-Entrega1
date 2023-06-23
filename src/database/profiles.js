@@ -26,7 +26,7 @@ export const insertProfile = (userId, email) => {
 //   const promise = new Promise((resolve, reject) => {
 //     db.transaction((tx) => {
 //       tx.executeSql(
-//         'SELECT * FROM places',
+//         'SELECT * FROM profiles',
 //         [],
 //         (_, result) => {
 //           resolve(result);
