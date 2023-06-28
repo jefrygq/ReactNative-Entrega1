@@ -1,14 +1,15 @@
-import { Text, View, TextInput, TouchableOpacity, Image, ScrollView } from "react-native";
+import { Text, View, TextInput, TouchableOpacity, Image } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 
 import styles from './styles';
 import logo from '../../assets/img/mlogo.png';
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { signUp } from "../../store/actions/auth.action";
 
 export default RegisterScreen = ({route, navigation}) => {
   const dispatch  = useDispatch();
+  const loginError = useSelector(state => state.auth.loginError);
   
   const emptyAuth = {
     email: '',
@@ -35,6 +36,9 @@ export default RegisterScreen = ({route, navigation}) => {
       </View>
       <View style={styles.registerForm}>
         <Text style={styles.title}>Register</Text>
+        {loginError && <Text style={styles.errorContainer}>
+          Error: {loginError.message}
+        </Text>}
         <Controller
           control={control}
           rules={{

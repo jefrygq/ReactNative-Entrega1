@@ -1,6 +1,6 @@
 import { View, TextInput, Text, Image, TouchableOpacity } from "react-native";
 import { useForm, Controller } from "react-hook-form";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import styles from './styles';
 import logo from '../../assets/img/mlogo.png';
@@ -8,6 +8,7 @@ import { login } from "../../store/actions/auth.action";
 
 const LoginScreen = ({route, navigation}) => {
   const dispatch  = useDispatch();
+  const loginError = useSelector(state => state.auth.loginError);
   
   const emptyAuth = {
     email: '',
@@ -33,6 +34,9 @@ const LoginScreen = ({route, navigation}) => {
       </View>
       <View style={styles.registerForm}>
         <Text style={styles.title}>Login</Text>
+        {loginError && <Text style={styles.errorContainer}>
+          Error: {loginError.message}
+        </Text>}
         <Controller
           control={control}
           rules={{

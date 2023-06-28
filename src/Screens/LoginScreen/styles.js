@@ -66,5 +66,16 @@ export default styles = StyleSheet.create({
     borderTopWidth: 1,
     width: "72%",
     textAlign: 'center'
+  },
+  errorContainer: {
+    width: "80%",
+    margin: 10,
+    alignItems: "center",
+    padding: 10,
+    backgroundColor: colors.red,
+    borderRadius: 10,
+    color: colors.white,
+    textAlign: 'center',
+    fontWeight: 'bold'
   }
 });

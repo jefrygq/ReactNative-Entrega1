@@ -4,6 +4,7 @@ import { insertProfile, updateProfileColumn } from "../../database/profiles";
 export const SIGN_UP = 'SIGN_UP';
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
+export const LOGIN_ERROR = 'LOGIN_ERROR';
 
 export const signUp = (email, password) => {
   return async dispatch => {
@@ -22,7 +23,15 @@ export const signUp = (email, password) => {
       });
       
       const result = await response.json();
+      console.log('SignUp request result:');
       console.log(result);
+
+      if(result.error) {
+        dispatch({
+          type: LOGIN_ERROR,
+          error: result.error
+        });
+      }
 
       // save place to db
       const dbResult = await insertProfile(result.localId, email);
@@ -56,7 +65,15 @@ export const login = (email, password) => {
       });
       
       const result = await response.json();
+      console.log('Login request result:');
       console.log(result);
+
+      if(result.error) {
+        dispatch({
+          type: LOGIN_ERROR,
+          error: result.error
+        });
+      }
 
       // save place to db
       const dbResult = await updateProfileColumn('logged_in', 1, result.localId);
