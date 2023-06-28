@@ -1,7 +1,7 @@
 import { Text, View, Image, TouchableOpacity, Keyboard } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import colors from '../constants/colors';
+import COLORS from '../constants/colors';
 import screenStyles from '../Screens/screenStyles';
 import styles from './styles';
 
@@ -68,10 +68,10 @@ export default BottomNavigation = () => {
               resizeMode={'contain'}
               style={{
                 ...styles.navIcon,
-                tintColor: focused ? colors.actionColor : colors.tertiary
+                tintColor: focused ? COLORS.actionColor : COLORS.tertiary
               }}
             />
-            <Text style={{color: focused ? colors.actionColor : colors.tertiary, ...styles.navText}}>Scheduled</Text>
+            <Text style={{color: focused ? COLORS.actionColor : COLORS.tertiary, ...styles.navText}}>Scheduled</Text>
           </View>
         )
       }} />
@@ -84,10 +84,10 @@ export default BottomNavigation = () => {
               resizeMode={'contain'}
               style={{
                 ...styles.navIcon,
-                tintColor: focused ? colors.actionColor : colors.tertiary
+                tintColor: focused ? COLORS.actionColor : COLORS.tertiary
               }}
             />
-            <Text style={{color: focused ? colors.actionColor : colors.tertiary, ...styles.navText}}>All Meds</Text>
+            <Text style={{color: focused ? COLORS.actionColor : COLORS.tertiary, ...styles.navText}}>All Meds</Text>
           </View>
         )
       }} />
@@ -115,10 +115,10 @@ export default BottomNavigation = () => {
               resizeMode={'contain'}
               style={{
                 ...styles.navIcon,
-                tintColor: focused ? colors.actionColor : colors.tertiary
+                tintColor: focused ? COLORS.actionColor : COLORS.tertiary
               }}
             />
-            <Text style={{color: focused ? colors.actionColor : colors.tertiary, ...styles.navText}}>History</Text>
+            <Text style={{color: focused ? COLORS.actionColor : COLORS.tertiary, ...styles.navText}}>History</Text>
           </View>
         )
       }} />
@@ -131,10 +131,10 @@ export default BottomNavigation = () => {
               resizeMode={'contain'}
               style={{
                 ...styles.navIcon,
-                tintColor: focused ? colors.actionColor : colors.tertiary
+                tintColor: focused ? COLORS.actionColor : COLORS.tertiary
               }}
             />
-            <Text style={{color: focused ? colors.actionColor : colors.tertiary, ...styles.navText}}>Settings</Text>
+            <Text style={{color: focused ? COLORS.actionColor : COLORS.tertiary, ...styles.navText}}>Settings</Text>
           </View>
         )
       }} />

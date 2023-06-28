@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import colors from '../../constants/colors';
+import COLORS from '../../constants/colors';
 
 export const styles = StyleSheet.create({
   selectorContainer: {
@@ -12,13 +12,13 @@ export const styles = StyleSheet.create({
     height: 110,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: COLORS.white,
     borderRadius: 15,
     overflow: 'hidden',
   },
   previewTextContainer: {
     borderWidth: 2,
-    borderColor: colors.tertiary,
+    borderColor: COLORS.tertiary,
     borderStyle: 'dashed',
     padding: 5,
     width: '90%',
@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
     borderRadius: 15,
   },
   previewText: {
-    color: colors.tertiary,
+    color: COLORS.tertiary,
     textAlign: 'center'
   },
   image: {

@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native';
-import Colors from '../../constants/colors';
+import COLORS from '../../constants/colors';
 
 export default styles = StyleSheet.create({
 	form: {
 		flexDirection: 'column',
+		paddingHorizontal: 20
 	},
 	formControl: {
 		marginBottom: 15,
@@ -11,25 +12,25 @@ export default styles = StyleSheet.create({
 	},
 	label: {
 		fontSize: 16,
-		color: Colors.tertiary,
+		color: COLORS.tertiary,
 	},
 	input: {
 		flex: 1,
 		borderBottomWidth: 1,
-		borderColor: Colors.tertiary,
+		borderColor: COLORS.tertiary,
 	},
 	inputSelect: {
 		flex: 1,
 		marginLeft: 10
 	},
 	error: {
-		color: Colors.red,
+		color: COLORS.red,
 		fontSize: 12
 	},
 	imageUploader: {
 		width: 100,
 		height: 100,
 		borderRadius: 50,
-		backgroundColor: Colors.tertiary,
+		backgroundColor: COLORS.tertiary,
 	}
 });

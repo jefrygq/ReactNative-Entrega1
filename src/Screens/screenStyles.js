@@ -1,18 +1,19 @@
 import { Platform, StyleSheet } from "react-native";
-import Colors from "../constants/colors";
+import COLORS from "../constants/colors";
 
 export default screenStyles = StyleSheet.create({
   screenContainer: {
     flex: 1,
-    padding: 20,
+    paddingTop: 20,
     paddingBottom: Platform.OS === "android" ? 125 : 135,
-    backgroundColor: Colors.background,
+    backgroundColor: COLORS.background,
     maxHeight: '100%',
+    maxWidth: '100%',
   },
   headerTitleStyle: {
     fontSize: 22,
     fontFamily: "Quicksand-Medium",
-    color: Colors.primary,
+    color: COLORS.primary,
     textAlign: "center",
   },
   rowContainer: {
@@ -22,9 +23,10 @@ export default screenStyles = StyleSheet.create({
     alignItems: 'center',
   },
   card: {
-    backgroundColor: Colors.white,
+    flex: 1,
+    backgroundColor: COLORS.white,
     borderRadius: 15,
-    shadowColor: Colors.secondary,
+    shadowColor: COLORS.secondary,
     shadowOffset: {
       width: 0,
       height: 5,
@@ -34,23 +36,22 @@ export default screenStyles = StyleSheet.create({
     elevation: 5,
     padding: 20,
     marginVertical: 10,
-    width: '100%',
     maxWidth: '100%',
   },
   buttonPrimary: {
     marginTop: 20,
-		backgroundColor: Colors.primary,
+		backgroundColor: COLORS.primary,
 		padding: 10,
 		borderRadius: 20,
 		alignContent: 'center',
 		justifyContent: 'center'
   },
   buttonPrimaryText: {
-    color: Colors.white,
+    color: COLORS.white,
 		textAlign: 'center'
   },
   shadow: {
-    shadowColor: Colors.secondary,
+    shadowColor: COLORS.secondary,
     shadowOffset: {
       width: 0,
       height: 5
@@ -60,7 +61,7 @@ export default screenStyles = StyleSheet.create({
     elevation: 5
   },
   headerButton: {
-    borderColor: Colors.tertiary,
+    borderColor: COLORS.tertiary,
     borderWidth: 1,
     paddingHorizontal: 10,
     paddingVertical: 8,
@@ -70,6 +71,6 @@ export default screenStyles = StyleSheet.create({
     justifyContent: 'center'
   },
   headerButtonText: {
-    color: Colors.tertiary,
+    color: COLORS.tertiary,
   }
 });

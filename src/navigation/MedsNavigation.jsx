@@ -13,7 +13,7 @@ const MedsNavigation = () => {
       headerTitleStyle: screenStyles.headerTitleStyle,
       headerTitleAlign: "center"
     }}>
-      <Stack.Screen name="AllMeds" component={AllMedsScreen} />
+      <Stack.Screen name="AllMeds" options={{title: 'All Medications'}} component={AllMedsScreen} />
       <Stack.Screen name="ViewMed" component={ViewMedScreen}
         options={({route}) => ({title: route.params.med.name})} 
       />

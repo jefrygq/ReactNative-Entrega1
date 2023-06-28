@@ -1,6 +1,4 @@
-import { View, Text, Button, FlatList } from 'react-native';
-import screenStyles from '../screenStyles';
-import styles from './styles';
+import { FlatList } from 'react-native';
 
 import MedListItem from '../../components/MedListItem';
 import { useDispatch, useSelector } from 'react-redux';
