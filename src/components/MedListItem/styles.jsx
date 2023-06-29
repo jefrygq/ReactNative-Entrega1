@@ -14,6 +14,10 @@ export const styles = StyleSheet.create({
   imagesContainer: {
     flex: 1,
     flowDirection: 'row',
+    borderRightWidth: 1,
+    borderRightColor: COLORS.primary,
+    marginRight: 12,
+
   },
   image: {
     width: 20,
