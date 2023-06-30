@@ -9,12 +9,18 @@ const ViewMedScreen = ({route, navigation}) => {
   const med = useSelector(state => state.meds.current);
 
   const hasImages = med.imageFront || med.imageBack || med.imageMed;
-  
-  const medImages = [
-    {id: 'imagFront', title: 'Front Image', uri: med.imageFront},
-    {id: 'imageBack', title: 'Back Image', uri: med.imageBack},
-    {id: 'imageMed', title: 'Medicine Image', uri: med.imageMed}
-  ];
+  const medImages = [];
+  if(med.imageFront) {
+    medImages.push({id: 'imageFront', title: 'Front Image', uri: med.imageFront});
+  }
+
+  if(med.imageBack) {
+    medImages.push({id: 'imageBack', title: 'Back Image', uri: med.imageBack});
+  }
+
+  if(med.imageMed) {
+    medImages.push({id: 'imageMed', title: 'Medicine Image', uri: med.imageMed});
+  }
   
   return (
     <ScreenView>

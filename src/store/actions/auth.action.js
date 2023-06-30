@@ -31,6 +31,8 @@ export const signUp = (email, password) => {
           type: LOGIN_ERROR,
           error: result.error
         });
+
+        return;
       }
 
       // save place to db
@@ -73,6 +75,8 @@ export const login = (email, password) => {
           type: LOGIN_ERROR,
           error: result.error
         });
+
+        return;
       }
 
       // save place to db
