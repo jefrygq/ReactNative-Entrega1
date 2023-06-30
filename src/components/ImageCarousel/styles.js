@@ -27,12 +27,12 @@ export const styles = StyleSheet.create({
     paddingVertical: 4,
     position: 'absolute',
     bottom: 0,
-    backgroundColor: COLORS.white,
+    backgroundColor: COLORS.secondary,
   },
   itemLabel: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: COLORS.tertiary,
+    color: COLORS.white,
   },
   itemImage: {
     width: '100%',

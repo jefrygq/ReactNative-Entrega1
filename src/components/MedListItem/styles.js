@@ -55,7 +55,6 @@ export const styles = StyleSheet.create({
     color: COLORS.highlight,
     fontSize: 16,
     fontWeight: 'bold',
-  
   },
   presentation: {
     color: COLORS.tertiary,
