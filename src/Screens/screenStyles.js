@@ -7,7 +7,6 @@ export default screenStyles = StyleSheet.create({
     paddingTop: 20,
     paddingBottom: Platform.OS === "android" ? 125 : 135,
     backgroundColor: COLORS.background,
-    maxHeight: '100%',
     maxWidth: '100%',
   },
   headerTitleStyle: {

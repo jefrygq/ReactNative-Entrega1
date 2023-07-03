@@ -4,16 +4,21 @@ import { useForm, Controller, reset } from "react-hook-form";
 import ModalSelector from 'react-native-modal-selector'
 import ScreenView from "../ScreenView";
 
+import dayjs from 'dayjs';
+
 import screenStyles from '../screenStyles';
 import styles from './styles';
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addMed, updateMed, getMeds } from '../../store/actions/meds.action';
 import MedImages from "../../components/MedImages";
+import DateTimeField from '../../components/DateTimeField';
 
 export default EditMedScreen = ({route, navigation}) => {
-  console.log('route');
-  console.log(route);
+  const userId = useSelector(state => state.auth.currentUserId);
+
+  // console.log('route');
+  // console.log(route);
   const dispatch  = useDispatch();
 
   const [imageFront, setImageFront] = useState('');
@@ -38,6 +43,7 @@ export default EditMedScreen = ({route, navigation}) => {
     frequencyUnit: '',
     durationAmount: '',
     durationUnit: '',
+    startsOn: Date.now(),
   };
 
   const { control, handleSubmit, reset, formState: { errors } } = useForm({
@@ -52,15 +58,28 @@ export default EditMedScreen = ({route, navigation}) => {
     data.imageBack = imageBack;
     data.imageMed = imageMed;
 
-    // add created unix timestamp
-    data.createdAt = Date.now();
+    // add current user id
+    data.userId = userId;
+
+    // format start date
+    data.startsOn = dayjs(data.startsOn).unix();
+
+    // calculate end date
+    let endsOn = dayjs(data.startsOn);
+    data.endsOn = endsOn.add(data.durationAmount, data.durationUnit).unix();
 
     if (med) {
       console.log('updating existing med');
+      // add updated unix timestamp
+      data.updatedAt = dayjs().unix();
+
       dispatch(updateMed({key: med.id, med: data}));
     } else {
       console.log('adding new med');
-      dispatch(addMed(data));;
+      // add created unix timestamp
+      data.createdAt = dayjs().unix();
+
+      dispatch(addMed(data));
     }
     reset();
 
@@ -230,19 +249,12 @@ export default EditMedScreen = ({route, navigation}) => {
             render={({ field: { onChange, onBlur, value } }) => (
               <View style={styles.formControl}>
                 <Text style={styles.label}>Starting On:</Text>
-                <TextInput
-                  style={styles.input}
-                  placeholder="Ex: June 10, 6:00pm"
-                  onBlur={onBlur}
-                  onChangeText={onChange}
-                  value={value}
-                />
+                <DateTimeField value={value} onChange={onChange} onBlur={onBlur} otherStyles={styles.formControl} />
               </View>
             )}
-            name="startDateTime"
+            name="startsOn"
           />
           
-
           <TouchableOpacity style={screenStyles.buttonPrimary} onPress={handleSubmit(onSubmit)}>
             <Text style={screenStyles.buttonPrimaryText}>Save</Text>
           </TouchableOpacity>

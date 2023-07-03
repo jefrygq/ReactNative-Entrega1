@@ -3,12 +3,13 @@ import COLORS from '../../constants/colors';
 
 export default styles = StyleSheet.create({
 	form: {
+		flex: 1,
 		flexDirection: 'column',
-		paddingHorizontal: 20
+		paddingHorizontal: 20,
 	},
 	formControl: {
 		marginBottom: 15,
-		height: 60
+		minHeight: 60,
 	},
 	label: {
 		fontSize: 16,
