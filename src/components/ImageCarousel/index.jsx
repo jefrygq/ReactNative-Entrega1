@@ -5,8 +5,8 @@ import screenStyles from '../../Screens/screenStyles';
 import { styles, DEVICE_WIDTH, ITEM_WIDTH, ITEM_HEIGHT } from './styles';
 
 export default ImageCarousel = ({images, mini}) => {
-  console.log('DEVICE_WIDTH, ITEM_WIDTH, ITEM_HEIGHT');
-  console.log(DEVICE_WIDTH, ITEM_WIDTH, ITEM_HEIGHT);
+  // console.log('DEVICE_WIDTH, ITEM_WIDTH, ITEM_HEIGHT');
+  // console.log(DEVICE_WIDTH, ITEM_WIDTH, ITEM_HEIGHT);
 
   const renderItem = ({item, index}) => {
     return (

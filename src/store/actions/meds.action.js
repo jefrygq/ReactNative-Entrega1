@@ -105,18 +105,21 @@ export const filteredMeds = category => (
 
 
 const saveImageToDevice = image => {
-  const fileName = image.split('/').pop();
-  const newPath = FileSystem.documentDirectory + fileName;
+  if(image) {
+    const fileName = image.split('/').pop();
+    const newPath = FileSystem.documentDirectory + fileName;
 
-  try {
-      FileSystem.moveAsync({
-          from: image,
-          to: newPath
-      });
+    try {
+        FileSystem.moveAsync({
+            from: image,
+            to: newPath
+        });
 
-      return newPath;
-  } catch (error) {
-      console.log(error);
-      throw error;
+        return newPath;
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
   }
+  return '';
 }

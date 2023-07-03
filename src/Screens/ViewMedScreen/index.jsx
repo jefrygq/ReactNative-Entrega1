@@ -6,6 +6,11 @@ import ScreenView from '../ScreenView';
 import ImageCarousel from '../../components/ImageCarousel';
 import { styles } from './styles';
 
+import dayjs from 'dayjs';
+import localizedFormat from 'dayjs/plugin/localizedFormat';
+
+dayjs.extend(localizedFormat);
+
 const ViewMedScreen = ({route, navigation}) => {
   const med = useSelector(state => state.meds.current);
 
@@ -44,12 +49,12 @@ const ViewMedScreen = ({route, navigation}) => {
         
         <View style={styles.item}>
           <Text style={styles.label}>Treatment Starts On:</Text>
-          <Text style={styles.primaryText}>{med.startsOn}</Text>
+          <Text style={styles.primaryText}>{dayjs(med.startsOn).format('LLL')}</Text>
         </View>
 
         <View style={styles.item}>
           <Text style={styles.label}>Treatment Ends On:</Text>
-          <Text style={styles.primaryText}>{med.endsOn}</Text>
+          <Text style={styles.primaryText}>{dayjs(med.endsOn).format('LLL')}</Text>
         </View>
 
         <Button title="Edit" onPress={() => navigation.navigate('EditMed', {med})} />

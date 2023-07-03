@@ -10,8 +10,8 @@ export default ImageSelector = ({title, imageUri, onImage}) => {
   const [pickedUri, setPickedUri] = useState('');
 
   useEffect(() => {
-    console.log('imageUri');
-    console.log(imageUri);
+    // console.log('imageUri');
+    // console.log(imageUri);
     if (imageUri) {
       setPickedUri(imageUri);
     }

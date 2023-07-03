@@ -43,7 +43,7 @@ export default EditMedScreen = ({route, navigation}) => {
     frequencyUnit: '',
     durationAmount: '',
     durationUnit: '',
-    startsOn: Date.now(),
+    startsOn: dayjs().valueOf(),
   };
 
   const { control, handleSubmit, reset, formState: { errors } } = useForm({
@@ -61,12 +61,18 @@ export default EditMedScreen = ({route, navigation}) => {
     // add current user id
     data.userId = userId;
 
-    // format start date
-    data.startsOn = dayjs(data.startsOn).unix();
-
     // calculate end date
     let endsOn = dayjs(data.startsOn);
-    data.endsOn = endsOn.add(data.durationAmount, data.durationUnit).unix();
+
+    console.log('startsOn');
+    console.log(data.startsOn);
+    console.log('data.durationAmount');
+    console.log(data.durationAmount);
+    console.log('data.durationUnit');
+    console.log(data.durationUnit);
+    data.endsOn = endsOn.add(data.durationAmount, data.durationUnit).valueOf();
+    console.log('endsOn');
+    console.log(data.endsOn);
 
     if (med) {
       console.log('updating existing med');
