@@ -1,10 +1,10 @@
 import React from 'react';
-import {View, Text, Button, Image, StyleSheet} from 'react-native';
+import {View, Text, Button, Image} from 'react-native';
 import screenStyles from '../screenStyles';
 import { useSelector } from 'react-redux';
 import ScreenView from '../ScreenView';
 import ImageCarousel from '../../components/ImageCarousel';
-import COLORS from '../../constants/colors';
+import { styles } from './styles';
 
 const ViewMedScreen = ({route, navigation}) => {
   const med = useSelector(state => state.meds.current);
@@ -43,13 +43,13 @@ const ViewMedScreen = ({route, navigation}) => {
         </View>
         
         <View style={styles.item}>
-          <Text style={styles.label}>Treatment Starts At:</Text>
-          <Text style={styles.primaryText}>{med.startsAt}</Text>
+          <Text style={styles.label}>Treatment Starts On:</Text>
+          <Text style={styles.primaryText}>{med.startsOn}</Text>
         </View>
 
         <View style={styles.item}>
-          <Text style={styles.label}>Treatment Ends At:</Text>
-          <Text style={styles.primaryText}>{med.endsAt}</Text>
+          <Text style={styles.label}>Treatment Ends On:</Text>
+          <Text style={styles.primaryText}>{med.endsOn}</Text>
         </View>
 
         <Button title="Edit" onPress={() => navigation.navigate('EditMed', {med})} />
@@ -58,45 +58,5 @@ const ViewMedScreen = ({route, navigation}) => {
     </ScreenView>
   );
 }
-
-const styles = StyleSheet.create({
-  infoContainer: {
-    marginHorizontal: 20,
-    marginVertical: 20,
-    color: COLORS.secondary,
-  },
-  cardHeader: {
-    marginBottom: 10,
-  },
-  item: {
-    marginBottom: 10,
-    paddingBottom: 10,
-    borderBottomWidth: 1,
-    borderColor: COLORS.tertiary,
-    borderStyle: 'dotted'
-  },
-  name: {
-    color: COLORS.highlight,
-    fontSize: 24,
-    fontWeight: 'bold',
-  },
-  presentation: {
-    color: COLORS.tertiary,
-  },
-  label: {
-		fontSize: 18,
-		color: COLORS.tertiary,
-    // fontWeight: 'bold',
-	},
-  primaryText: {
-    fontSize: 16,
-    color: COLORS.secondary,
-    fontWeight: 'bold',
-  },
-  secondaryText: {
-    color: COLORS.tertiary,
-    fontWeight: 'normal',
-  },
-})
 
 export default ViewMedScreen;
