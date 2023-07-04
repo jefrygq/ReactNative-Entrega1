@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 import COLORS from '../../constants/colors';
 
 export const styles = StyleSheet.create({
@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
     paddingBottom: 10,
     borderBottomWidth: 1,
     borderColor: COLORS.tertiary,
-    borderStyle: 'dotted'
+    borderStyle: Platform.OS === 'ios' ? 'solid' : 'dotted',
   },
   name: {
     color: COLORS.highlight,

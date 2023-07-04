@@ -4,6 +4,7 @@ import * as FileSystem from 'expo-file-system';
 export const SELECTED_MED = 'SELECTED_MED';
 export const ADD_MED = 'ADD_MED';
 export const UPDATE_MED = 'UPDATE_MED';
+export const DELETE_MED = 'DELETE_MED';
 export const GET_MEDS = 'GET_MEDS';
 export const FILTERED_MEDS = 'FILTERED_MEDS';
 
@@ -61,6 +62,39 @@ export const updateMed = data => {
       dispatch({
         type: UPDATE_MED,
         medId: result.name
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+};
+
+export const deleteMed = data => {
+  return async dispatch => {
+    try {
+      const response = await fetch(`${API_URL}/meds/${data.key}.json`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      });
+
+      const result = await response.json();
+      console.log('delete ajax result:');
+      console.log(result);
+
+      if(result.error) {
+        dispatch({
+          type: LOGIN_ERROR,
+          error: result.error
+        });
+
+        return;
+      }
+
+      dispatch({
+        type: DELETE_MED,
+        medId: data.key
       });
     } catch (error) {
       console.log(error);

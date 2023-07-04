@@ -49,6 +49,18 @@ export default screenStyles = StyleSheet.create({
     color: COLORS.white,
 		textAlign: 'center'
   },
+  buttonSecondary: {
+    marginTop: 20,
+		backgroundColor: COLORS.tertiary,
+		padding: 10,
+		borderRadius: 20,
+		alignContent: 'center',
+		justifyContent: 'center'
+  },
+  buttonSecondaryText: {
+    color: COLORS.white,
+		textAlign: 'center'
+  },
   shadow: {
     shadowColor: COLORS.secondary,
     shadowOffset: {
