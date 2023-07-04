@@ -1,5 +1,6 @@
 import {API_URL} from '../../constants/firebase';
 import * as FileSystem from 'expo-file-system';
+import { createReminders } from './reminders.action';
 
 export const SELECTED_MED = 'SELECTED_MED';
 export const ADD_MED = 'ADD_MED';
@@ -38,6 +39,9 @@ export const addMed = data => {
         type: ADD_MED,
         medId: result.name
       });
+
+      // create med reminders
+      dispatch(createReminders({med: {...data, id: result.name}, userId: data.userId}))
     } catch (error) {
       console.log(error);
     }
@@ -63,6 +67,9 @@ export const updateMed = data => {
         type: UPDATE_MED,
         medId: result.name
       });
+
+      // regenerate med reminders
+      dispatch(regenerateReminders({med: data.med, userId: data.userId}));
     } catch (error) {
       console.log(error);
     }

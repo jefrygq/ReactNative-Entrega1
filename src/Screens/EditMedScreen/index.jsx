@@ -238,7 +238,6 @@ export default EditMedScreen = ({route, navigation}) => {
                       {key: "weeks", label: "Weeks"},
                       {key: "months", label: "Months"},
                       {key: "years", label: "Years"},
-                      {key: "forever", label: "Forever"}
                     ]}
                     initValue={value ? value : "days"}
                     onChange={(option)=>{ onChange(option.key) }} 
