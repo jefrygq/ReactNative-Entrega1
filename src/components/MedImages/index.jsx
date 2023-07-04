@@ -4,8 +4,6 @@ import ImageSelector from '../ImageSelector';
 import screenStyles from '../../Screens/screenStyles';
 import styles from './styles';
 
-
-
 const MedImages = ({imageFront, setImageFront, imageBack, setImageBack, imageMed, setImageMed}) => {
   return (
     <View style={screenStyles.rowContainer}>

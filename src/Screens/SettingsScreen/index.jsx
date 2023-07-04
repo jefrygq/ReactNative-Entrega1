@@ -5,7 +5,7 @@ import styles from './styles';
 import ScreenView from '../ScreenView';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../store/actions/auth.action';
-import colors from '../../constants/colors';
+import COLORS from '../../constants/colors';
 
 export default SettingsScreen = ({ route, navigation }) => {
 	const userId = useSelector(state => state.auth.currentUserId);
@@ -24,10 +24,10 @@ export default SettingsScreen = ({ route, navigation }) => {
 			<ImageBackground source={require('../../assets/icons/settings.png')} 
 				style={{flex: 1}}
 				resizeMode='center' 
-				imageStyle={{opacity: 0.2, tintColor: colors.tertiary}}
+				imageStyle={{opacity: 0.2, tintColor: COLORS.tertiary}}
 			>
 				<View style={{flex: 1, padding: 20}}>
-					<Text>Current User: {currentUser.email}</Text>
+					<Text>Current User: {currentUser ? currentUser.email : userId}</Text>
 					<TouchableOpacity style={{...screenStyles.buttonSecondary, backgroundColor: 'red'}} onPress={handleLogout}>
 						<Text style={screenStyles.buttonSecondaryText}>Logout</Text>
 					</TouchableOpacity>

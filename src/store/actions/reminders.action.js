@@ -105,7 +105,7 @@ export const addReminder = data => {
 export const updateReminder = data => {
   return async dispatch => {
     try {
-      const response = await fetch(`${API_URL}/reminders/${data.userId}/${data.key}.json`, {
+      const response = await fetch(`${API_URL}/reminders/${data.userId}/${data.medId}.json`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
@@ -114,7 +114,7 @@ export const updateReminder = data => {
       });
 
       const result = await response.json();
-      console.log('update ajax result:');
+      console.log('update reminder ajax result:');
       console.log(result);
 
       dispatch({
@@ -166,13 +166,21 @@ export const getReminders = data => {
       console.log('retrieved reminders:')
       console.log(result);
 
-      const reminders = Object.keys(result).map(key => ({
-        ...result[key],
-        id: key
-      }));
+      // remove top medId keys
+      let reminders = Object.keys(result).map(key => result[key]);
+      reminders = reminders[0];
+      console.log('reminders');
       console.log(reminders);
 
-      dispatch({ type: GET_REMINDERS, reminders: reminders });
+      // include key/id for each reminder into the body
+      const flatReminders = Object.keys(reminders).map(key => ({
+        ...reminders[key],
+        id: key,
+      }));
+      console.log('flat reminders');
+      console.log(flatReminders);
+
+      dispatch({ type: GET_REMINDERS, reminders: flatReminders });
     } catch (error) {
       console.log(error);
     }

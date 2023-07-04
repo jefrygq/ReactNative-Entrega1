@@ -6,43 +6,25 @@ export default styles = StyleSheet.create({
   item: {
     flex: 1,
     marginHorizontal: 20,
-    marginVertical: 8,
+    marginBottom: 12,
+  },
+  date: {
+    color: COLORS.tertiary,
+    fontSize: 14,
+  },
+  reminder: {
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    marginTop: 5,
+    marginBottom: 10,
     padding: 15
   },
   imagesContainer: {
     flex: 1,
     height: 90,
     position: 'relative',
-  },
-  imageWrapper: {
-    padding: 0,
-    marginTop: 0,
-    width: 80,
-    height: 80,
-    position: 'absolute',
-    top: 0,
-    borderRadius: 15,
-    overflow: 'hidden',
-    borderColor: COLORS.primary,
-    borderWidth: 1,
-  },
-  image: {
-    width: '100%',
-    height: '100%',
-  },
-  placeholder: {
-    flex: 1,
-    tintColor: COLORS.white,
-    backgroundColor: COLORS.tertiary,
-    padding: 15,
-  },
-  placeholderImage: {
-    tintColor: COLORS.white,
-    width: '100%',
-    height: '100%',
   },
   infoContainer: {
     flex: 2,

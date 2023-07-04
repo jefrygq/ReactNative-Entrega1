@@ -2,7 +2,7 @@ import { View, Text, ImageBackground } from 'react-native';
 import screenStyles from '../screenStyles';
 import styles from './styles';
 import ScreenView from '../ScreenView';
-import colors from '../../constants/colors';
+import COLORS from '../../constants/colors';
 
 export default MedsArchiveScreen = ({ route, navigation }) => {
 	/* Get the params */
@@ -13,7 +13,7 @@ export default MedsArchiveScreen = ({ route, navigation }) => {
 			<ImageBackground source={require('../../assets/icons/history2.png')} 
 				style={{flex: 1}}
 				resizeMode='center' 
-				imageStyle={{opacity: 0.2, tintColor: colors.tertiary}}
+				imageStyle={{opacity: 0.2, tintColor: COLORS.tertiary}}
 			>
 				<Text>MedsArchive Component</Text>
 			</ImageBackground>

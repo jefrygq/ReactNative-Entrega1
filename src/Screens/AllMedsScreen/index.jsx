@@ -3,10 +3,11 @@ import { FlatList, ImageBackground } from 'react-native';
 import MedListItem from '../../components/MedListItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMeds, selectedMed } from '../../store/actions/meds.action';
-import { useEffect } from 'react';
 import ScreenView from '../ScreenView';
 
 import COLORS from '../../constants/colors';
+import { useFocusEffect } from '@react-navigation/native';
+import { useCallback } from 'react';
 
 export default AllMedsScreen = ({ route, navigation }) => {	
 	
@@ -14,9 +15,11 @@ export default AllMedsScreen = ({ route, navigation }) => {
   const meds = useSelector(state => (state.meds.meds));
 	const userId = useSelector(state => state.auth.currentUserId);
 
-  useEffect(() => {
-    dispatch(getMeds({userId: userId}));
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      dispatch(getMeds({userId: userId}));
+    }, [userId])
+  );
 
 	// console.log('meds:');
 	// console.log(meds);
