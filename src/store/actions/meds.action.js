@@ -22,7 +22,7 @@ export const addMed = data => {
       data.imageBack = saveImageToDevice(data.imageBack);
       data.imageMed = saveImageToDevice(data.imageMed);
 
-      const response = await fetch(`${API_URL}/meds.json`, {
+      const response = await fetch(`${API_URL}/meds/${data.userId}.json`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -47,7 +47,7 @@ export const addMed = data => {
 export const updateMed = data => {
   return async dispatch => {
     try {
-      const response = await fetch(`${API_URL}/meds/${data.key}.json`, {
+      const response = await fetch(`${API_URL}/meds/${data.userId}/${data.key}.json`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
@@ -72,7 +72,7 @@ export const updateMed = data => {
 export const deleteMed = data => {
   return async dispatch => {
     try {
-      const response = await fetch(`${API_URL}/meds/${data.key}.json`, {
+      const response = await fetch(`${API_URL}/meds/${data.userId}/${data.id}.json`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json'
@@ -83,18 +83,9 @@ export const deleteMed = data => {
       console.log('delete ajax result:');
       console.log(result);
 
-      if(result.error) {
-        dispatch({
-          type: LOGIN_ERROR,
-          error: result.error
-        });
-
-        return;
-      }
-
       dispatch({
         type: DELETE_MED,
-        medId: data.key
+        medId: data.id
       });
     } catch (error) {
       console.log(error);
@@ -105,7 +96,7 @@ export const deleteMed = data => {
 export const getMeds = data => {
   return async dispatch => {
     try {
-      const response = await fetch (`${API_URL}/meds.json`,
+      const response = await fetch (`${API_URL}/meds/${data.userId}.json`,
       {
         method: 'GET',
         headers: {

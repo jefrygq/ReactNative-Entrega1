@@ -5,6 +5,8 @@ import ModalSelector from 'react-native-modal-selector'
 import ScreenView from "../ScreenView";
 
 import dayjs from 'dayjs';
+import localizedFormat from 'dayjs/plugin/localizedFormat';
+dayjs.extend(localizedFormat);
 
 import screenStyles from '../screenStyles';
 import styles from './styles';
@@ -79,7 +81,7 @@ export default EditMedScreen = ({route, navigation}) => {
       // add updated unix timestamp
       data.updatedAt = dayjs().unix();
 
-      dispatch(updateMed({key: med.id, med: data}));
+      dispatch(updateMed({key: med.id, med: data, userId: userId}));
     } else {
       console.log('adding new med');
       // add created unix timestamp
@@ -90,7 +92,7 @@ export default EditMedScreen = ({route, navigation}) => {
     reset();
 
     // redirect to all meds screen
-    dispatch(getMeds());
+    dispatch(getMeds({userId: userId}));
     navigation.navigate('MedsNavigation' , { screen: 'AllMeds' });
   };
 

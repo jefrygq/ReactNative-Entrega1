@@ -11,11 +11,12 @@ import { styles } from './styles';
 
 import dayjs from 'dayjs';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
+dayjs.extend(localizedFormat);
 
 const ViewMedScreen = ({route, navigation}) => {
-  dayjs.extend(localizedFormat);
   const dispatch  = useDispatch();
   const med = useSelector(state => state.meds.current);
+  const userId = useSelector(state => state.auth.currentUserId);
 
   const hasImages = med.imageFront || med.imageBack || med.imageMed;
   const medImages = [];
@@ -48,7 +49,7 @@ const ViewMedScreen = ({route, navigation}) => {
             dispatch(deleteMed(med));
 
             // redirect to all meds screen
-            dispatch(getMeds());
+            dispatch(getMeds({userId: userId}));
             navigation.navigate('MedsNavigation' , { screen: 'AllMeds' });
           }
         }
