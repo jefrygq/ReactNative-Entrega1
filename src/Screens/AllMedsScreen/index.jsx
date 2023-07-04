@@ -28,7 +28,7 @@ export default AllMedsScreen = ({ route, navigation }) => {
 
 	return (
 		<ScreenView noScroll={true}>
-			<ImageBackground source={require('../../assets/icons/box.png')} 
+			<ImageBackground source={require('../../assets/icons/prescription.png')} 
 				style={{flex: 1}}
 				resizeMode='center' 
 				imageStyle={{opacity: 0.2, tintColor: COLORS.tertiary}}

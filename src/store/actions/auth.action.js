@@ -1,5 +1,6 @@
 import { AUTH_LOGIN_URL, AUTH_SIGNUP_URL } from "../../constants/firebase";
 import { insertProfile, updateProfileColumn } from "../../database/profiles";
+import { addProfile, currenProfile } from "./userprofiles.action";
 
 export const SIGN_UP = 'SIGN_UP';
 export const LOGIN = 'LOGIN';
@@ -44,6 +45,8 @@ export const signUp = (email, password) => {
         userId: result.localId,
         email: email
       });
+
+      dispatch(addProfile(result.localId, email));
     } catch (error) {
       console.log(error);
     }
@@ -87,6 +90,8 @@ export const login = (email, password) => {
         type: LOGIN,
         userId: result.localId
       });
+
+      dispatch(currenProfile(result.localId));
     } catch (error) {
       console.log(error);
     }
