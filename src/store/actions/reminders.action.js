@@ -48,14 +48,13 @@ export const createReminders = data => {
       console.log('Reminders:');
       console.log(reminders);
 
-      // reminders.forEach(reminder => {
-      //   dispatch({
-      //     type: ADD_REMINDER,
-      //     reminder: reminder,
-      //     medId: reminder.medId,
-      //     userId: reminder.userId
-      //   });
-      // });
+      reminders.forEach(reminder => {
+        dispatch(addReminder({
+          reminder: reminder,
+          medId: reminder.medId,
+          userId: reminder.userId
+        }));
+      });
     } catch (error) {
       console.log(error);
     }
@@ -81,20 +80,16 @@ export const regenerateReminders = data => {
 export const addReminder = data => {
   return async dispatch => {
     try {
-      data.imageFront = saveImageToDevice(data.imageFront);
-      data.imageBack = saveImageToDevice(data.imageBack);
-      data.imageReminder = saveImageToDevice(data.imageReminder);
-
-      const response = await fetch(`${API_URL}/reminders/${data.userId}.json`, {
+      const response = await fetch(`${API_URL}/reminders/${data.userId}/${data.medId}.json`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data.reminder)
       });
 
       const result = await response.json();
-      console.log('add ajax result:');
+      console.log('add reminder ajax result:');
       console.log(result);
 
       dispatch({
