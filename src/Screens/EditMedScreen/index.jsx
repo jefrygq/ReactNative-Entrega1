@@ -42,9 +42,9 @@ export default EditMedScreen = ({route, navigation}) => {
     presentation: '',
     dose: '',
     frequencyAmount: '',
-    frequencyUnit: '',
+    frequencyUnit: 'hours',
     durationAmount: '',
-    durationUnit: '',
+    durationUnit: 'days',
     startsOn: dayjs().valueOf(),
   };
 
