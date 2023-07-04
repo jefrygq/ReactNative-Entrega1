@@ -43,7 +43,7 @@ export default ScheduledScreen = ({ route, navigation }) => {
 			>
 				<FlatList
 					data={reminders}
-					renderItem={({item}) => <ReminderListItem reminder={item} handlePress={handlePress} />}
+					renderItem={({item, index}) => <ReminderListItem reminder={item} handlePress={handlePress} first={index === 0} />}
 					keyExtractor={item => item.id}
 				/>
 			</ImageBackground>

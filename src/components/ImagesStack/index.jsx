@@ -15,7 +15,7 @@ export default ImagesStack = ({images}) => {
             ...styles.imageWrapper, 
             opacity: 1 - removeOpacity,
             left: index * 8,
-            top: index * 8,
+            // top: index * 8,
             elevation: 15 - index*2,
             zIndex: 5 - index,
           }}
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     height: 80,
     position: 'absolute',
     top: 0,
-    borderRadius: 15,
+    // borderRadius: 15,
     overflow: 'hidden',
   },
   image: {

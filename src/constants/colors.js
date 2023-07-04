@@ -4,6 +4,7 @@ export default {
   background: "#f6f9f0",
   secondary: "#3D3B4E",
   tertiary: "#748c94",
+  light: "#e4a82b",
   actionColor: "#FD58af",
   disabledColor: "#695f75",
   highlight: "#009e94",

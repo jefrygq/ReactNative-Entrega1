@@ -60,7 +60,7 @@ export default BottomNavigation = () => {
         headerTitleAlign: "center"
       }}
     >
-      <Tab.Screen name="Upcoming" component={ScheduledScreen} options={{
+      <Tab.Screen name="Schedule" component={ScheduledScreen} options={{
         tabBarIcon: ({focused}) => (
           <View style={styles.navItem}>
             <Image 
@@ -71,7 +71,7 @@ export default BottomNavigation = () => {
                 tintColor: focused ? COLORS.actionColor : COLORS.tertiary
               }}
             />
-            <Text style={{color: focused ? COLORS.actionColor : COLORS.tertiary, ...styles.navText}}>Scheduled</Text>
+            <Text style={{color: focused ? COLORS.actionColor : COLORS.tertiary, ...styles.navText}}>Schedule</Text>
           </View>
         )
       }} />
