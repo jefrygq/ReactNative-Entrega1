@@ -168,15 +168,20 @@ export const getReminders = data => {
 
       // remove top medId keys
       let reminders = Object.keys(result).map(key => result[key]);
-      reminders = reminders[0];
       console.log('reminders');
       console.log(reminders);
 
       // include key/id for each reminder into the body
-      const flatReminders = Object.keys(reminders).map(key => ({
-        ...reminders[key],
-        id: key,
-      }));
+      let flatReminders = [];
+      reminders.forEach(medReminders => {
+          const flatArray = Object.keys(medReminders).map(key => ({
+              ...medReminders[key],
+              id: key,
+            }));
+          
+          flatReminders = [...flatReminders, ...flatArray];
+      });
+
       console.log('flat reminders');
       console.log(flatReminders);
 
