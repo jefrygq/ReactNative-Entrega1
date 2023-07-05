@@ -7,7 +7,7 @@ import styles from './styles';
 
 import ScheduledScreen from '../Screens/ScheduledScreen';
 import EditMedScreen from '../Screens/EditMedScreen';
-import MedsArchiveScreen from '../Screens/MedsArchiveScreen';
+import RemindersHistoryScreen from '../Screens/RemindersHistoryScreen';
 
 import SettingsNavigation from '../navigation/SettingsNavigation';
 import MedsNavigation from './MedsNavigation';
@@ -107,7 +107,7 @@ export default BottomNavigation = () => {
         ),
         tabBarButton: (props) => (<CustomAddButton {...props} />)
       })} />
-      <Tab.Screen name="History" component={MedsArchiveScreen} options={{
+      <Tab.Screen name="History" component={RemindersHistoryScreen} options={{
         tabBarIcon: ({focused}) => (
           <View style={styles.navItem}>
             <Image 

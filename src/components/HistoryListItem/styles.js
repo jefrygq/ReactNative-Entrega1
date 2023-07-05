@@ -14,6 +14,10 @@ export default styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   time: {
+    fontSize: 16,
+    color: COLORS.secondary,
+  },
+  pill: {
     fontSize: 12,
     fontWeight: 'bold',
     backgroundColor: COLORS.light,
@@ -22,23 +26,6 @@ export default styles = StyleSheet.create({
     marginRight: 10,
     borderRadius: 15,
     overflow: 'hidden',
-  },
-  first: {
-    shadowColor: COLORS.primary
-  },
-  banner: {
-    width: '100%',
-    backgroundColor: COLORS.primary,
-    color: COLORS.white,
-    padding: 5,
-    marginBottom: 10,
-    fontSize: 16,
-    fontFamily: "Quicksand-Medium",
-  },
-  upcoming: {
-    backgroundColor: COLORS.secondary,
-    padding: 5,
-    marginTop: 20,
   },
   reminder: {
     flex: 1,

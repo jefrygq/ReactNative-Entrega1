@@ -66,15 +66,15 @@ export default EditMedScreen = ({route, navigation}) => {
     // calculate end date
     let endsOn = dayjs(data.startsOn);
 
-    console.log('startsOn');
-    console.log(data.startsOn);
-    console.log('data.durationAmount');
-    console.log(data.durationAmount);
-    console.log('data.durationUnit');
-    console.log(data.durationUnit);
+    // console.log('startsOn');
+    // console.log(data.startsOn);
+    // console.log('data.durationAmount');
+    // console.log(data.durationAmount);
+    // console.log('data.durationUnit');
+    // console.log(data.durationUnit);
     data.endsOn = endsOn.add(data.durationAmount, data.durationUnit).valueOf();
-    console.log('endsOn');
-    console.log(data.endsOn);
+    // console.log('endsOn');
+    // console.log(data.endsOn);
 
     if (med) {
       console.log('updating existing med');

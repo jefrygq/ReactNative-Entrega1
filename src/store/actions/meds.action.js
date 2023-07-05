@@ -1,6 +1,6 @@
 import {API_URL} from '../../constants/firebase';
 import * as FileSystem from 'expo-file-system';
-import { createReminders } from './reminders.action';
+import { createReminders, deleteReminders, regenerateReminders } from './reminders.action';
 
 export const SELECTED_MED = 'SELECTED_MED';
 export const ADD_MED = 'ADD_MED';
@@ -79,7 +79,7 @@ export const updateMed = data => {
 export const deleteMed = data => {
   return async dispatch => {
     try {
-      const response = await fetch(`${API_URL}/meds/${data.userId}/${data.id}.json`, {
+      const response = await fetch(`${API_URL}/meds/${data.userId}/${data.med.id}.json`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json'
@@ -90,9 +90,14 @@ export const deleteMed = data => {
       console.log('delete ajax result:');
       console.log(result);
 
+      // delete existing reminders for user/med
+      const deleteResult = await deleteReminders(data);
+      console.log('delete ajax result:');
+      console.log(deleteResult);
+
       dispatch({
         type: DELETE_MED,
-        medId: data.id
+        medId: data.med.id
       });
     } catch (error) {
       console.log(error);
@@ -112,14 +117,17 @@ export const getMeds = data => {
       });
       
       const result = await response.json();
-      console.log('retrieved meds:')
-      console.log(result);
+      // console.log('retrieved meds:');
+      // console.log(result);
 
-      const meds = Object.keys(result).map(key => ({
-        ...result[key],
-        id: key
-      }));
-      console.log(meds);
+      let meds = [];
+      if(result != null) {
+        meds = Object.keys(result).map(key => ({
+          ...result[key],
+          id: key
+        }));
+      }
+      // console.log(meds);
 
       dispatch({ type: GET_MEDS, meds: meds });
     } catch (error) {

@@ -46,7 +46,7 @@ const ViewMedScreen = ({route, navigation}) => {
           text: 'Delete',
           onPress: () => {
             // delete from redux
-            dispatch(deleteMed(med));
+            dispatch(deleteMed({med: med, userId: userId}));
 
             // redirect to all meds screen
             dispatch(getMeds({userId: userId}));

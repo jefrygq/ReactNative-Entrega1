@@ -37,7 +37,7 @@ export const createReminders = data => {
           imageFront: data.med.imageFront,
           imageBack: data.med.imageBack,
           imageMed: data.med.imageMed,
-          status: 'pending',
+          status: 'not_taken',
           date: nextReminderDate.valueOf(),
           userId: data.userId,
         };
@@ -64,11 +64,44 @@ export const createReminders = data => {
 export const regenerateReminders = data => {
   return async dispatch => {
     try {
-      
+      // delete existing reminders for user/med
+      const result = await deleteReminders(data);
+      console.log('Delete reminders ajax result:');
+      console.log(result);
 
-      dispatch({
-        type: ADD_REMINDER,
-        reminderId: result.name
+      // create new reminders for user/med
+      let reminders = [];
+
+      const startDate = dayjs(data.med.startsOn);
+      const endDate = dayjs(data.med.endsOn);
+      
+      let nextReminderDate = startDate;
+      while (nextReminderDate.isBefore(endDate)) {
+        let reminder = {
+          medId: data.med.id,
+          name: data.med.name,
+          presentation: data.med.presentation,
+          dose: data.med.dose,
+          imageFront: data.med.imageFront,
+          imageBack: data.med.imageBack,
+          imageMed: data.med.imageMed,
+          status: 'not_taken',
+          date: nextReminderDate.valueOf(),
+          userId: data.userId,
+        };
+
+        reminders.push(reminder);
+        nextReminderDate = nextReminderDate.add(data.med.frequencyAmount, data.med.frequencyUnit);
+      }
+      console.log('Regenerated reminders:');
+      console.log(reminders);
+
+      reminders.forEach(reminder => {
+        dispatch(addReminder({
+          reminder: reminder,
+          medId: reminder.medId,
+          userId: reminder.userId
+        }));
       });
     } catch (error) {
       console.log(error);
@@ -163,24 +196,26 @@ export const getReminders = data => {
       });
       
       const result = await response.json();
-      console.log('retrieved reminders:')
-      console.log(result);
+      // console.log('retrieved reminders:');
+      // console.log(result);
 
-      // remove top medId keys
-      let reminders = Object.keys(result).map(key => result[key]);
-      console.log('reminders');
-      console.log(reminders);
-
-      // include key/id for each reminder into the body
       let flatReminders = [];
-      reminders.forEach(medReminders => {
-          const flatArray = Object.keys(medReminders).map(key => ({
-              ...medReminders[key],
-              id: key,
-            }));
-          
-          flatReminders = [...flatReminders, ...flatArray];
-      });
+      if(result != null) {
+        // remove top medId keys
+        let reminders = Object.keys(result).map(key => result[key]);
+        // console.log('reminders');
+        // console.log(reminders);
+
+        // include key/id for each reminder into the body
+        reminders.forEach(medReminders => {
+            const flatArray = Object.keys(medReminders).map(key => ({
+                ...medReminders[key],
+                id: key,
+              }));
+            
+            flatReminders = [...flatReminders, ...flatArray];
+        });
+      }
 
       console.log('flat reminders');
       console.log(flatReminders);
@@ -191,3 +226,17 @@ export const getReminders = data => {
     }
   }
 };
+
+export async function deleteReminders(data) {
+  console.log('Deleting reminders for user: ' + data.userId+' medId: ' + data.med.id);
+
+  const response = await fetch(`${API_URL}/reminders/${data.userId}/${data.med.id}.json`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  });
+
+  const result = await response.json();
+  return result;
+}

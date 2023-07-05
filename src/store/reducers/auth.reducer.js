@@ -13,7 +13,7 @@ const AuthReducer = (state = initialState, action) => {
       return {...state, currentUserId: action.userId};
     case LOGIN:
       const newState = {...state, currentUserId: action.userId, loginError: null};
-      console.log(newState);
+      // console.log(newState);
       return newState;
     case LOGOUT:
       return {...state, currentUserId: null};

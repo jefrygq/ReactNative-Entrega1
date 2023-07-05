@@ -29,6 +29,7 @@ export default styles = StyleSheet.create({
     color: COLORS.highlight,
     fontSize: 16,
     fontWeight: 'bold',
+    fontFamily: "Quicksand-Bold",
   },
   presentation: {
     color: COLORS.tertiary,

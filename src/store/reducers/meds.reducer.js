@@ -7,8 +7,8 @@ const initialState = {
 };
 
 const MedsReducer = (state = initialState, action) => {
-  console.log('action');
-  console.log(action);
+  // console.log('action');
+  // console.log(action);
 
   switch (action.type) {
     case SELECTED_MED:

@@ -1,4 +1,4 @@
-import { SELECTED_REMINDER, GET_REMINDERS } from "../actions/reminders.action";
+import { SELECTED_REMINDER, GET_REMINDERS, FILTER_REMINDERS } from "../actions/reminders.action";
 
 const initialState = {
   reminders: [],
@@ -6,8 +6,8 @@ const initialState = {
 };
 
 const RemindersReducer = (state = initialState, action) => {
-  console.log('action');
-  console.log(action);
+  // console.log('action');
+  // console.log(action);
 
   switch (action.type) {
     case SELECTED_REMINDER:

@@ -12,7 +12,7 @@ import { useCallback } from 'react';
 export default AllMedsScreen = ({ route, navigation }) => {	
 	
 	const dispatch = useDispatch();
-  const meds = useSelector(state => (state.meds.meds));
+  const meds = useSelector(state => (state.meds.meds.sort((a, b) => { return b.createdAt - a.createdAt })));
 	const userId = useSelector(state => state.auth.currentUserId);
 
   useFocusEffect(

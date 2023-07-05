@@ -18,6 +18,7 @@ export default App = () => {
   const [fontsLoaded] = useFonts({
     'Quicksand-Regular': require('./src/assets/fonts/Quicksand-Regular.ttf'),
     'Quicksand-Medium': require('./src/assets/fonts/Quicksand-Medium.ttf'),
+    'Quicksand-Bold': require('./src/assets/fonts/Quicksand-Bold.ttf'),
   });
 
   if (!fontsLoaded) {
